@@ -2,12 +2,15 @@ package ru.progwards.java1.lessons.compare_if_cycles;
 
 public class CyclesGoldenFibo {
     public static boolean containsDigit(int number, int digit) {
-        boolean result;
-
-        if (number == digit) {
-            result = true;
-        } else {
-            result = false;
+        boolean result = false;
+        while (number > 0) {
+            if (number % 10 == digit) {
+                result = true;
+                break;
+            } else {
+                result = false;
+            }
+            number = number / 10;
         }
         return result;
     }
@@ -16,7 +19,7 @@ public class CyclesGoldenFibo {
         int sum = 1;
         int previousNumber = 0;
         int nextNumber = 1;
-        for (int i = 0; i < n; i++) {
+        for (int i = 1; i < n; i++) {
             sum = previousNumber + nextNumber;
             previousNumber = nextNumber;
             nextNumber = sum;
@@ -31,10 +34,10 @@ public class CyclesGoldenFibo {
             result = (double) a / c;
         }
         if (b == c) {
-            result = (double)b / a;
+            result = (double) b / a;
         }
         if (a == c) {
-            result = (double)a / b;
+            result = (double) a / b;
         }
         if (1.61703 <= result && result <= 1.61903) {
             response = true;
@@ -46,13 +49,16 @@ public class CyclesGoldenFibo {
 
     public static void main(String[] args) {
         CyclesGoldenFibo one = new CyclesGoldenFibo();
+        System.out.println(one.fiboNumber(2));
+        System.out.println(one.containsDigit(35859, 3));
+        System.out.println();
         for (int i = 0; i < 15; i++) {
             System.out.println(one.fiboNumber(i));
         }
         for (int i = 1; i <= 100; i++) {
             for (int j = 1; j <= 100; j++) {
-                if (one.isGoldenTriangle(i, i,j)) {
-                    System.out.println(j + " " + i );
+                if (one.isGoldenTriangle(i, i, j)) {
+                    System.out.println(j + " " + i);
                 }
             }
         }

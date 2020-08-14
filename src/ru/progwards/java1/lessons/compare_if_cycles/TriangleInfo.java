@@ -12,7 +12,6 @@ public class TriangleInfo {
     }
 
     public static boolean isRightTriangle(int a, int b, int c) {
-
         boolean bigLine;
         if (a * a == (b * b + c * c)) {
             bigLine = true;
@@ -28,11 +27,18 @@ public class TriangleInfo {
 
     public static boolean isIsoscelesTriangle(int a, int b, int c) {
         boolean result;
-        if (a == b || b == c || c == a){
+        if (a == b || b == c || c == a) {
             result = true;
-        } else{
+        } else {
             result = false;
         }
-        return  result;
+        return result;
+    }
+
+    public static void main(String[] args) {
+        TriangleInfo second = new TriangleInfo();
+        second.isTriangle(1, 2, 3);
+        second.isRightTriangle(5, 6, 7);
+        second.isIsoscelesTriangle(2, 3, 5);
     }
 }

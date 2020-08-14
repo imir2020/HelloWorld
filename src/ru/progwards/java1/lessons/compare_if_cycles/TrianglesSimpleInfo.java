@@ -32,11 +32,18 @@ public class TrianglesSimpleInfo {
     public static boolean isEquilateralTriangle(int a, int b, int c) {
         int result = a - b - c;
         boolean finish;
-        if(result == 0){
+        if (result == 0) {
             finish = true;
-        } else{
+        } else {
             finish = false;
         }
         return finish;
+    }
+
+    public static void main(String[] args) {
+        TrianglesSimpleInfo one = new TrianglesSimpleInfo();
+        one.maxSide(2, 4, 8);
+        one.minSide(2, 4, 5);
+        one.isEquilateralTriangle(4, 1, 9);
     }
 }
