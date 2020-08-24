@@ -3,9 +3,6 @@ package ru.progwards.java1.lessons.classes;
 public class ComplexNum {
     int a;
     int b;
-    int c;
-    int d;
-    int z;
 
     public ComplexNum(int a, int b) {
         this.a = a;
@@ -41,7 +38,7 @@ public class ComplexNum {
         temp = (a * num.a + b * num.b) / (num.a * num.a + num.b * num.b);
         num.b = ((b * num.a - a * num.b) / (num.a * num.a + num.b * num.b));
         num.a = temp;
-        System.out.println(num.a );
+        System.out.println(num.a);
         return num;
     }
 
