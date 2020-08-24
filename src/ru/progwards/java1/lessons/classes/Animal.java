@@ -26,7 +26,7 @@ public class Animal {
 
     @Override
     public String toString() {
-        return "I am " + getKind() + " eat " + getFoodKind();
+        return "I am " + getKind() + "," + " eat " + getFoodKind();
     }
 
     public double getWeight() {
