@@ -29,22 +29,27 @@ public class ComplexNum {
     }
 
     public ComplexNum mul(ComplexNum num) {
-        num.a = (a * num.a - b * num.b);
+        int temp;
+        temp = (a * num.a - b * num.b);
         num.b = (b * num.a + a * num.b);
+        num.a = temp;
         return num;
     }
 
     public ComplexNum div(ComplexNum num) {
-        num.a = (a * num.a + b * num.b) / (num.a * num.a + num.b * num.b);
-        num.b = ((b * num.a + a * num.b) / (num.a * num.a + num.b * num.b));
+        int temp;
+        temp = (a * num.a + b * num.b) / (num.a * num.a + num.b * num.b);
+        num.b = ((b * num.a - a * num.b) / (num.a * num.a + num.b * num.b));
+        num.a = temp;
+        System.out.println(num.a );
         return num;
     }
 
     public static void main(String[] args) {
-        ComplexNum second = new ComplexNum(1, 1);
-        ComplexNum second2 = new ComplexNum(3, 2);
+        ComplexNum second = new ComplexNum(1000, 1000);
+        ComplexNum second2 = new ComplexNum(100, 100);
         System.out.println(second.toString());
-        System.out.println(second.sub(second2));
+        System.out.println(second.div(second2));
         System.out.println(second.mul(second2));
     }
 }
