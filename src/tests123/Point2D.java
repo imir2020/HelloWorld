@@ -13,4 +13,13 @@ public class Point2D {
     public String toString() {
         return x + "," + y;
     }
+    //OutSide methods
+    public static int sumArrayItems(int[] a){
+        int result = 0;
+        for (int i = 0; i <a.length ; i++) {
+            result += a[i];
+        }
+        return result;
+    }
+
 }

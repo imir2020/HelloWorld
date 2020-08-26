@@ -14,29 +14,29 @@ public class ComplexNum {
     }
 
     public ComplexNum add(ComplexNum num) {
-        num.a = a + num.a;
-        num.b = b + num.b;
+        num.a = this.a + num.a;
+        num.b = this.b + num.b;
         return num;
     }
 
     public ComplexNum sub(ComplexNum num) {
-        num.a = a - num.a;
-        num.b = b - num.b;
+        num.a = this.a - num.a;
+        num.b = this.b - num.b;
         return num;
     }
 
     public ComplexNum mul(ComplexNum num) {
         int temp;
-        temp = (a * num.a - b * num.b);
-        num.b = (b * num.a + a * num.b);
+        temp = (this.a * num.a - this.b * num.b);
+        num.b = (this.b * num.a + this.a * num.b);
         num.a = temp;
         return num;
     }
 
     public ComplexNum div(ComplexNum num) {
         int temp;
-        temp = (a * num.a + b * num.b) / (num.a * num.a + num.b * num.b);
-        num.b = ((b * num.a - a * num.b) / (num.a * num.a + num.b * num.b));
+        temp = (this.a * num.a + this.b * num.b) / (num.a * num.a + num.b * num.b);
+        num.b = ((this.b * num.a - this.a * num.b) / (num.a * num.a + num.b * num.b));
         num.a = temp;
         System.out.println(num.a);
         return num;
