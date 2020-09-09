@@ -13,7 +13,6 @@ public class Eratosthenes {
     }
 
     private void sift() {
-        //Понять и изменить в соответствии с заданием.
         for (int i = 2; i < N; i++) {
             if (sieve[i]) {
                 for (int j = 2; i * j < N + 1; j++) {
@@ -36,7 +35,7 @@ public class Eratosthenes {
         one.sift();
         //one.isSimple(14);
         System.out.println();
-        System.out.println(one.isSimple(6));
+        System.out.println(one.isSimple(11));
         System.out.println();
     }
 }

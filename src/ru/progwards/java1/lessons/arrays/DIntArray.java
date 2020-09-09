@@ -1,69 +1,63 @@
 package ru.progwards.java1.lessons.arrays;
 
+import java.util.Arrays;
+
 public class DIntArray {
-    private int index = 5;
-    private int[] someInt = new int[index];//{3, 5, 7, 9, 11};
+    private int index = 0;
+    private int[] someInt = new int[0];
     private int[] newSomeInt;
 
     public DIntArray() {
     }
 
     public void add(int num) {
-        newSomeInt = new int[index + 1];
-        for (int i = 0; i < newSomeInt.length; i++) {
-            if (i < someInt.length) {
-                newSomeInt[i] = someInt[i];
-            } else {
-                newSomeInt[i] = num;
-            }
-        }
+        someInt = Arrays.copyOf(someInt, someInt.length + 1);
+        someInt[index] = num;
+        index++;
     }
 
     public void atInsert(int pos, int num) {
-        newSomeInt = new int[index + 1];
-        if (pos < newSomeInt.length) {
-            for (int i = 0, j = 0; i < newSomeInt.length && j < someInt.length; i++, j++) {
-                if (i < pos) {
-                    newSomeInt[i] = someInt[j];
-                }
-                if (i == pos) {
-                    newSomeInt[i] = num;
-                }
-                if (i > pos) {
-                    newSomeInt[i] = someInt[j];
-                }
+        newSomeInt = new int[someInt.length + 1];
+        for (int i = 0; i < someInt.length; i++) {
+            if (i < pos) {
+                newSomeInt[i] = someInt[i];
+            } else {
+                newSomeInt[i + 1] = someInt[i];
             }
-        } else {
-            System.out.println("FirstMistake!!!");
         }
+        newSomeInt[pos] = num;
     }
 
     public void atDelete(int pos) {
-        newSomeInt = new int[index - 1];
-        if (pos < newSomeInt.length) {
-            for (int i = 0, j = 0; i < newSomeInt.length && j < someInt.length; i++, j++) {
-                if (j < pos) {
-                    newSomeInt[i] = someInt[j];
-                }
-                if (j >= pos) {
-                    newSomeInt[i] = someInt[j + 1];
-                }
+        int[] newSomeInt = new int[someInt.length - 1];
+        for (int i = 0; i < someInt.length; i++) {
+            if(i < pos){
+                newSomeInt[i] = someInt[i];
             }
-        } else {
-            System.out.println("SecondMistake!!!");
+            if (someInt[i] == someInt[pos]) {
+                break;
+            }
+        }
+        for (int j = pos; j < newSomeInt.length; j++) {
+            newSomeInt[j] = someInt[j + 1];
         }
     }
 
     public int at(int pos) {
-        return newSomeInt[pos];
+        return someInt[pos];
     }
 
     public static void main(String[] args) {
         DIntArray one = new DIntArray();
-        //one.add(12);
-        //one.atInsert(4, 6745);
-        one.atDelete(3);
+        one.add(3);
+        one.add(5);
+        one.add(7);
+        one.add(9);
+        one.atInsert(3, 6745);
+        System.out.println();
+        one.atDelete(2);
+        System.out.println();
         //one.at(3);
-        //System.out.println(one.at(3));
+        System.out.println(one.at(0));
     }
 }
