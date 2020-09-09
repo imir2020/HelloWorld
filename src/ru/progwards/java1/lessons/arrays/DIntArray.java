@@ -31,7 +31,7 @@ public class DIntArray {
     public void atDelete(int pos) {
         int[] newSomeInt = new int[someInt.length - 1];
         for (int i = 0; i < someInt.length; i++) {
-            if(i < pos){
+            if (i < pos) {
                 newSomeInt[i] = someInt[i];
             }
             if (someInt[i] == someInt[pos]) {
