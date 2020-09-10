@@ -44,7 +44,7 @@ public class DIntArray {
     }
 
     public int at(int pos) {
-        return someInt[pos];
+        return newSomeInt[pos];
     }
 
     public static void main(String[] args) {
@@ -57,6 +57,6 @@ public class DIntArray {
         one.atDelete(2);
         one.atInsert(3, 6745);
         //one.at(3);
-        //System.out.println(one.at(0));
+        System.out.println(one.at(3));
     }
 }
