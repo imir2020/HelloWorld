@@ -4,12 +4,13 @@ import java.util.Arrays;
 
 public class Eratosthenes {
     int N;
-    private boolean[] sieve;
+      private boolean[] sieve;
 
     public Eratosthenes(int N) {
         this.N = N;
         sieve = new boolean[N + 1];
         Arrays.fill(sieve, true);
+        sift();
     }
 
     private void sift() {
@@ -35,7 +36,7 @@ public class Eratosthenes {
         one.sift();
         //one.isSimple(14);
         System.out.println();
-        System.out.println(one.isSimple(11));
+        System.out.println(one.isSimple(4));
         System.out.println();
     }
 }
