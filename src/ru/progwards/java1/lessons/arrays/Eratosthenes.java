@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Eratosthenes {
     int N;
-      private boolean[] sieve;
+    private boolean[] sieve;
 
     public Eratosthenes(int N) {
         this.N = N;

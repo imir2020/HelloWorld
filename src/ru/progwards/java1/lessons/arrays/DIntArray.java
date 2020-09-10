@@ -26,11 +26,6 @@ public class DIntArray {
             }
         }
         newSomeInt[pos] = num;
-
-       // test
-        for (int i = 0; i <newSomeInt.length ; i++) {
-            System.out.println(newSomeInt[i]);
-        }
     }
 
     public void atDelete(int pos) {
@@ -46,11 +41,6 @@ public class DIntArray {
         for (int j = pos; j < newSomeInt.length; j++) {
             newSomeInt[j] = someInt[j + 1];
         }
-
-        // test
-        for (int i = 0; i <newSomeInt.length ; i++) {
-            System.out.println(newSomeInt[i]);
-        }
     }
 
     public int at(int pos) {
@@ -63,7 +53,6 @@ public class DIntArray {
         one.add(5);
         one.add(-7);
         one.add(9);
-
         System.out.println();
         one.atDelete(2);
         one.atInsert(3, 6745);
