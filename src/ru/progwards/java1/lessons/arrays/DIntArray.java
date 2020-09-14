@@ -6,9 +6,6 @@ public class DIntArray {
 
     private int ind = 0;
     private int[] first = new int[0];
-    //private int[] second;
-
-
     public DIntArray() {
     }
 
@@ -16,11 +13,6 @@ public class DIntArray {
         first = Arrays.copyOf(first, first.length + 1);
         first[first.length - 1] = num;
         ind++;
-        //test
-        for (int i = 0; i < first.length; i++) {
-            System.out.print(first[i]);
-        }
-        System.out.println();
     }
 
     public void atInsert(int pos, int num) {
@@ -37,10 +29,6 @@ public class DIntArray {
             }
         }
         first = Arrays.copyOf(temp, temp.length);
-        //test
-        for (int i = 0; i < temp.length; i++) {
-            System.out.print(first[i] + " ");
-        }
     }
 
     public void atDelete(int pos) {
@@ -54,10 +42,6 @@ public class DIntArray {
             }
         }
         first = Arrays.copyOf(temp, temp.length);
-        //test
-        for (int i = 0; i < temp.length; i++) {
-            System.out.print(first[i] + " ");
-        }
     }
 
     public int at(int pos) {
@@ -77,6 +61,5 @@ public class DIntArray {
         one.atDelete(2);
         System.out.println();
         one.at(3);
-        System.out.println(one.at(2));
     }
 }
