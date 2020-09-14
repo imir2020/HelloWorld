@@ -14,7 +14,7 @@ public class DIntArray {
 
     public void add(int num) {
         first = Arrays.copyOf(first, first.length + 1);
-        first[first.length -1] = num;
+        first[first.length - 1] = num;
         ind++;
         //test
         for (int i = 0; i < first.length; i++) {
@@ -24,19 +24,19 @@ public class DIntArray {
     }
 
     public void atInsert(int pos, int num) {
-        int[] temp  = Arrays.copyOf(first, first.length + 1 );
+        int[] temp = Arrays.copyOf(first, first.length + 1);
         for (int i = 0; i < first.length; i++) {
             temp[i] = first[i];
         }
-        for (int i = temp.length - 1 ; i >= pos; i--) {
-            if(i > pos){
-                temp[i] = temp[i -1];
+        for (int i = temp.length - 1; i >= pos; i--) {
+            if (i > pos) {
+                temp[i] = temp[i - 1];
             }
-            if(i == pos) {
+            if (i == pos) {
                 temp[pos] = num;
             }
         }
-        first = Arrays.copyOf(temp, temp.length );
+        first = Arrays.copyOf(temp, temp.length);
         //test
         for (int i = 0; i < temp.length; i++) {
             System.out.print(first[i] + " ");
@@ -44,24 +44,26 @@ public class DIntArray {
     }
 
     public void atDelete(int pos) {
-        int[] temp  = Arrays.copyOf(first, first.length - 1 );
+        int[] temp = Arrays.copyOf(first, first.length - 1);
         for (int i = 0; i < temp.length; i++) {
             if (i < pos) {
                 temp[i] = first[i];
             }
-            if(i >= pos){
-                temp[i] = first[i +1];
+            if (i >= pos) {
+                temp[i] = first[i + 1];
             }
         }
-        first = Arrays.copyOf(temp, temp.length );
+        first = Arrays.copyOf(temp, temp.length);
         //test
         for (int i = 0; i < temp.length; i++) {
             System.out.print(first[i] + " ");
         }
     }
-    public int at(int pos){
+
+    public int at(int pos) {
         return first[pos];
     }
+
     public static void main(String[] args) {
         DIntArray one = new DIntArray();
         one.add(-3);
@@ -72,7 +74,7 @@ public class DIntArray {
         //System.out.println(one.ind);
         one.atInsert(3, 6745);
         System.out.println();
-         one.atDelete(2);
+        one.atDelete(2);
         System.out.println();
         one.at(3);
         System.out.println(one.at(2));
