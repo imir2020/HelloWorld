@@ -38,5 +38,8 @@ public class Rectangle {
         Rectangle to = new Rectangle(5, 2);
         System.out.println(om.compareTo(to));
 
+
+
+
     }
 }
