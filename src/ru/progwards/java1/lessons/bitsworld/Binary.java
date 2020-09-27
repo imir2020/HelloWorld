@@ -9,7 +9,7 @@ public class Binary {
 
     @Override
     public String toString() {
-        return num + " : " + String.format("%8s", Integer.toBinaryString(num)).replace(' ', '0');
+        return  String.format("%8s", Integer.toBinaryString(num)).replace(' ', '0');
     }
 
     public static void main(String[] args) {
