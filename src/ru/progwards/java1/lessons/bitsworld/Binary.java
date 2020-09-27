@@ -10,11 +10,10 @@ public class Binary {
 
     @Override
     public String toString() {
-        return num + " : " + Integer.toBinaryString(num);
+        return num + " : " + String.format("%8s", Integer.toBinaryString(num)).replace(' ', '0');
     }
-
     public static void main(String[] args) {
-        Binary one = new Binary((byte) 18);
+        Binary one = new Binary((byte) 0);
         System.out.println(one.toString());
     }
 }
