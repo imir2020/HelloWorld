@@ -9,11 +9,20 @@ public class Binary {
 
     @Override
     public String toString() {
-        return  String.format("%8s", Integer.toBinaryString(num)).replace(' ', '0');
+        int temp = (byte) (num&0b0000_0001);
+        //String temp = Integer.toBinaryString(num);
+        return num + ": " + temp;
+    }
+    public String toStringSecond() {
+        //произвести перевод числа из десятичного счисления в двоичное.
+        for (int i = 0; i < 8; i++) {
+
+        }
+        return num + ": ";
     }
 
     public static void main(String[] args) {
-        Binary one = new Binary((byte) 0);
+        Binary one = new Binary((byte) 6);
         System.out.println(one.toString());
     }
 }
