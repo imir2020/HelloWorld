@@ -9,20 +9,16 @@ public class Binary {
 
     @Override
     public String toString() {
-        int temp = (byte) (num&0b0000_0001);
-        //String temp = Integer.toBinaryString(num);
-        return num + ": " + temp;
-    }
-    public String toStringSecond() {
-        //произвести перевод числа из десятичного счисления в двоичное.
-        for (int i = 0; i < 8; i++) {
-
+        String result = "";
+        for (int i = 7; i >= 0; i--) {
+            result += CheckBit.checkBit(num, i);
         }
-        return num + ": ";
+        return result;
     }
+
 
     public static void main(String[] args) {
-        Binary one = new Binary((byte) 6);
+        Binary one = new Binary((byte) 2);
         System.out.println(one.toString());
     }
 }
