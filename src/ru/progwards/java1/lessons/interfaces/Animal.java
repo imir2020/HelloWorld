@@ -60,7 +60,6 @@ public class Animal implements FoodCompare, CompareWeight {
                 Double.compare(animal.coeff, coeff) == 0;
     }
 
-    @Override
     public int compareFoodPrice() {
         return 0;
     }
@@ -97,13 +96,13 @@ public class Animal implements FoodCompare, CompareWeight {
         Animal one = (Animal) smthHasWeigt;
         CompareResult result = null;
         if(getWeight() < one.getWeight()){
-             result = CompareResult.LESS;
+            result = CompareResult.LESS;
         }
         if(getWeight() == one.getWeight()){
             result = CompareResult.EQUAL;
         }
         if(getWeight() > one.getWeight()){
-             result = CompareResult.GREATER;
+            result = CompareResult.GREATER;
         }
         return result;
     }
@@ -113,7 +112,5 @@ public class Animal implements FoodCompare, CompareWeight {
         one.toString();
         System.out.println(one.toString());
         System.out.println(one.toStringFull());
-
-        System.out.println(one.equals(new Duck(450)));
     }
 }

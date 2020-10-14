@@ -26,9 +26,9 @@ public class Food implements CompareWeight {
         }
         return result;
     }
-   
+
     public static void sort(CompareWeight[] a) {
-       Food[] mas = (Food[]) new CompareWeight[10];
+        Food[] mas = (Food[]) new CompareWeight[10];
         for (int i = 0; i < a.length; i++) {
             for (int j = i + 1; j < mas.length; j++) {
                 if (mas[i].getWeight() > mas[j].getWeight()) {
