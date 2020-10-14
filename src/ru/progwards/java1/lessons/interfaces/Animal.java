@@ -1,5 +1,5 @@
 package ru.progwards.java1.lessons.interfaces;
-import  ru.progwards.java1.lessons.interfaces.f1.*;
+
 public class Animal implements FoodCompare, CompareWeight {
     double weight;
     double coeff = 0.02;
@@ -12,6 +12,7 @@ public class Animal implements FoodCompare, CompareWeight {
     protected enum FoodKind {
         UNKNOWN, HAY, CORN;
     }
+
 
     public Animal(double weight) {
         this.weight = weight;
@@ -49,11 +50,12 @@ public class Animal implements FoodCompare, CompareWeight {
 
     @Override
     public boolean equals(Object anObject) {
-        if (this == anObject) {
+        Animal animal = (Animal) anObject;
+        if (getWeight() == ((Animal) anObject).getWeight()) {
             return true;
         }
         if (anObject == null || getClass() != anObject.getClass()) return false;
-        Animal animal = (Animal) anObject;
+
         return Double.compare(animal.getWeight(), getWeight()) == 0 &&
                 Double.compare(animal.coeff, coeff) == 0;
     }
@@ -65,7 +67,20 @@ public class Animal implements FoodCompare, CompareWeight {
 
 
     public double getFood1kgPrice() {
-        return 0;
+        FoodKind temp = FoodKind.UNKNOWN;// не совсем правильно
+        int result = 0;
+        switch (temp) {
+            case HAY :
+                result = 20;
+                break;
+            case CORN:
+                result = 50;
+                break;
+            case UNKNOWN:
+                result = 0;
+                break;
+        }
+        return  result;
     }
 
     public double getFoodPrice() {
@@ -79,8 +94,18 @@ public class Animal implements FoodCompare, CompareWeight {
 
     @Override
     public CompareResult compareWeight(CompareWeight smthHasWeigt) {
-        Food one = (Food)smthHasWeigt;//в параметре передаётся объект, записываемы в интерфейсную переменную.
-        return null;
+        Animal one = (Animal) smthHasWeigt;
+        CompareResult result = null;
+        if(getWeight() < one.getWeight()){
+             result = CompareResult.LESS;
+        }
+        if(getWeight() == one.getWeight()){
+            result = CompareResult.EQUAL;
+        }
+        if(getWeight() > one.getWeight()){
+             result = CompareResult.GREATER;
+        }
+        return result;
     }
 
     public static void main(String[] args) {
