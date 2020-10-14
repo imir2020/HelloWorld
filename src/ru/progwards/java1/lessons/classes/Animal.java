@@ -4,11 +4,11 @@ public class Animal {
     double weight;
     double coeff = 0.02;
 
-    enum AnimalKind {
+     protected enum AnimalKind {
         ANIMAL, COW, HAMSTER, DUCK;
     }
 
-    enum FoodKind {
+     protected enum FoodKind {
         UNKNOWN, HAY, CORN;
     }
 

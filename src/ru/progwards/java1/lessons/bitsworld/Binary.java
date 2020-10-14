@@ -16,7 +16,6 @@ public class Binary {
         return result;
     }
 
-
     public static void main(String[] args) {
         Binary one = new Binary((byte) 2);
         System.out.println(one.toString());
