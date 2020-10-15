@@ -61,7 +61,7 @@ public class Animal implements CompareWeight, FoodCompare {
 
     @Override
     public int compareFoodPrice() {
-        return 0;
+        return 10;
     }
 
     public double getFood1kgPrice() {

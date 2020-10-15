@@ -26,7 +26,7 @@ public class CalculateFibonacci {
     }
 
     public static void clearLastFibo() {
-        lastFibo = null;
+        lastFibo.fibo = 0;
     }
 
     public static class CacheInfo {
@@ -36,9 +36,12 @@ public class CalculateFibonacci {
 
     public static void main(String[] args) {
         CalculateFibonacci one = new CalculateFibonacci();
-        one.fiboNumber(13);
+        one.fiboNumber(1);
         one.fiboNumber(10);
-        System.out.println( one.fiboNumber(13));
-        System.out.println( one.fiboNumber(12));
+
+        System.out.println( one.fiboNumber(1));
+        System.out.println( one.getLastFibo());
+        one.clearLastFibo();
+        System.out.println();
     }
 }
