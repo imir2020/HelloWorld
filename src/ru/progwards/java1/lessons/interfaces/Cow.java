@@ -1,7 +1,5 @@
 package ru.progwards.java1.lessons.interfaces;
 
-import ru.progwards.java1.lessons.classes.Animal;
-
 public class Cow extends Animal {
     double coeff = 0.05;
 
@@ -23,4 +21,5 @@ public class Cow extends Animal {
     public double getFoodCoeff() {
         return coeff;
     }
+
 }

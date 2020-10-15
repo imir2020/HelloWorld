@@ -1,7 +1,5 @@
 package ru.progwards.java1.lessons.interfaces;
 
-import ru.progwards.java1.lessons.classes.Animal;
-
 public class Duck extends Animal {
     double coeff = 0.04;
 
