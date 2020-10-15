@@ -6,5 +6,5 @@ public interface CompareWeight {
         LESS, EQUAL, GREATER;
     }
 
-     CompareResult compareWeight(CompareWeight smthHasWeigt);
+    CompareResult compareWeight(CompareWeight smthHasWeigt);
 }
