@@ -1,6 +1,6 @@
 package ru.progwards.java1.lessons.interfaces;
 
-public class Animal implements CompareWeight {
+public class Animal implements CompareWeight, FoodCompare {
     double weight;
     double coeff = 0.02;
 
