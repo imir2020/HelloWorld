@@ -1,9 +1,8 @@
 package ru.progwards.java1.lessons.interfaces;
 
-public class Animal implements FoodCompare, CompareWeight {
+public class Animal implements FoodCompare,CompareWeight {//
     double weight;
     double coeff = 0.02;
-
 
     protected enum AnimalKind {
         ANIMAL, COW, HAMSTER, DUCK;
@@ -60,13 +59,13 @@ public class Animal implements FoodCompare, CompareWeight {
                 Double.compare(animal.coeff, coeff) == 0;
     }
 
+    @Override
     public int compareFoodPrice() {
         return 0;
     }
 
-
     public double getFood1kgPrice() {
-        FoodKind temp = FoodKind.UNKNOWN;// не совсем правильно
+        FoodKind temp = FoodKind.UNKNOWN;
         int result = 0;
         switch (temp) {
             case HAY :
