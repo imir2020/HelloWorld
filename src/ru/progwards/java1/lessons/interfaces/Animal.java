@@ -50,11 +50,10 @@ public class Animal implements CompareWeight, FoodCompare {
     @Override
     public boolean equals(Object anObject) {
         Animal animal = (Animal) anObject;
-        if (getWeight() == ((Animal) anObject).getWeight()) {
+        if (this == anObject) {
             return true;
         }
         if (anObject == null || getClass() != anObject.getClass()) return false;
-
         return Double.compare(animal.getWeight(), getWeight()) == 0 &&
                 Double.compare(animal.coeff, coeff) == 0;
     }
@@ -64,11 +63,11 @@ public class Animal implements CompareWeight, FoodCompare {
         return 10;
     }
 
+    //Разобраться как работает этот метод, и исправить его.
     public double getFood1kgPrice() {
-        FoodKind temp = FoodKind.UNKNOWN;
         int result = 0;
-        switch (temp) {
-            case HAY :
+        switch (getFoodKind()) {
+            case HAY:
                 result = 20;
                 break;
             case CORN:
@@ -78,7 +77,7 @@ public class Animal implements CompareWeight, FoodCompare {
                 result = 0;
                 break;
         }
-        return  result;
+        return result;
     }
 
     public double getFoodPrice() {
@@ -86,6 +85,7 @@ public class Animal implements CompareWeight, FoodCompare {
         return result;
     }
 
+    //Разобраться как работает этот метод, и исправить его.
     public int compareFoodPrice(Animal animal) {
         return Double.compare(this.getFood1kgPrice(), animal.getFood1kgPrice());
     }
@@ -94,13 +94,13 @@ public class Animal implements CompareWeight, FoodCompare {
     public CompareResult compareWeight(CompareWeight smthHasWeigt) {
         Animal one = (Animal) smthHasWeigt;
         CompareResult result = null;
-        if(getWeight() < one.getWeight()){
+        if (getWeight() < one.getWeight()) {
             result = CompareResult.LESS;
         }
-        if(getWeight() == one.getWeight()){
+        if (getWeight() == one.getWeight()) {
             result = CompareResult.EQUAL;
         }
-        if(getWeight() > one.getWeight()){
+        if (getWeight() > one.getWeight()) {
             result = CompareResult.GREATER;
         }
         return result;
@@ -111,5 +111,9 @@ public class Animal implements CompareWeight, FoodCompare {
         one.toString();
         System.out.println(one.toString());
         System.out.println(one.toStringFull());
+        one.compareFoodPrice(new Cow(450));
+        System.out.println(one.compareFoodPrice(new Cow(450)));
+        one.getFood1kgPrice();
+        System.out.println(one.getFood1kgPrice());
     }
 }
