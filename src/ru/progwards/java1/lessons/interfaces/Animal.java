@@ -12,7 +12,6 @@ public class Animal implements CompareWeight, FoodCompare {
         UNKNOWN, HAY, CORN;
     }
 
-
     public Animal(double weight) {
         this.weight = weight;
     }
@@ -63,7 +62,6 @@ public class Animal implements CompareWeight, FoodCompare {
         return 10;
     }
 
-    //Разобраться как работает этот метод, и исправить его.
     public double getFood1kgPrice() {
         int result = 0;
         switch (getFoodKind()) {
@@ -85,7 +83,6 @@ public class Animal implements CompareWeight, FoodCompare {
         return result;
     }
 
-    //Разобраться как работает этот метод, и исправить его.
     public int compareFoodPrice(Animal animal) {
         return Double.compare(this.getFood1kgPrice(), animal.getFood1kgPrice());
     }

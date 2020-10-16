@@ -1,7 +1,5 @@
 package ru.progwards.java1.lessons.interfaces;
 
-import org.w3c.dom.ls.LSOutput;
-
 public class CalculateFibonacci {
     private static CacheInfo lastFibo;
 
@@ -24,12 +22,10 @@ public class CalculateFibonacci {
         return fibo;
     }
 
-    //Разобраться как работает этот метод, и исправить его.
     public static CacheInfo getLastFibo() {
         return lastFibo;
     }
 
-    //Разобраться как работает этот метод, и исправить его.
     public static void clearLastFibo() {
         lastFibo = null;
     }
@@ -42,8 +38,8 @@ public class CalculateFibonacci {
     public static void main(String[] args) {
         CalculateFibonacci one = new CalculateFibonacci();
         one.fiboNumber(1);
-        System.out.println( one.fiboNumber(11));
-        System.out.println( one.getLastFibo());
+        System.out.println(one.fiboNumber(11));
+        System.out.println(one.getLastFibo());
         System.out.println(getLastFibo().n);
         System.out.println(getLastFibo().fibo);
         one.clearLastFibo();
