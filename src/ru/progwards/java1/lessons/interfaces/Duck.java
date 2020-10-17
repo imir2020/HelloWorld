@@ -1,5 +1,7 @@
 package ru.progwards.java1.lessons.interfaces;
 
+import java.util.Objects;
+
 public class Duck extends Animal {
     double coeff = 0.04;
 
@@ -21,14 +23,12 @@ public class Duck extends Animal {
     public double getFoodCoeff() {
         return coeff;
     }
-
     @Override
-    public boolean equals(Object anObject) {
-        Animal animal = (Animal) anObject;
-        if (this == anObject) {
-            return true;
-        }
-        if (anObject == null || getClass() != anObject.getClass()) return false;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if(o != null || getClass() == o.getClass())return  true;
+        Animal animal = (Animal) o;
         return Double.compare(animal.getWeight(), getWeight()) == 0 &&
                 Double.compare(animal.coeff, coeff) == 0;
     }
@@ -43,11 +43,11 @@ public class Duck extends Animal {
         return super.compareFoodPrice(animal);
     }
 
-
     public static void main(String[] args) {
         Duck one = new Duck(5);
+        one.equals(new Duck(5));
         System.out.println(one.equals(new Cow(5)));
-        one.getFood1kgPrice();
-        System.out.println(one.getFood1kgPrice());
+        //one.getFood1kgPrice();
+        //System.out.println(one.getFood1kgPrice());
     }
 }

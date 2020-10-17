@@ -26,23 +26,29 @@ public class Food implements CompareWeight {
         }
         return result;
     }
-
+//здесь должен сортироваться enum(это гипотеза)
     public static void sort(CompareWeight[] a) {
-        Food[] mas = (Food[]) new CompareWeight[10];
+        Food[] b = new Food[a.length];
+        //Food[] b = (Food[]) new CompareWeight[a.length];//так не получится
+
         for (int i = 0; i < a.length; i++) {
-            for (int j = i + 1; j < mas.length; j++) {
-                if (mas[i].getWeight() > mas[j].getWeight()) {
+            b[i] = (Food) a[i];
+            for (int j = i + 1; j < a.length; j++) {
+                if (b[i].getWeight() > b[j].getWeight()) {
                     int temp;
-                    temp = mas[i].getWeight();
-                    mas[i] = mas[j];
-                    mas[j].weight = temp;
+                    temp = b[i].getWeight();
+                    b[i] = b[j];
+                    b[j].weight = temp;
                 }
             }
+            System.out.println(b[i]);
         }
     }
     public static void main(String[] args) {
         Food second = new Food(1500);
         second.compareWeight(new Food(1600));
         System.out.println(second.compareWeight(new Food(1500)));
+        second.sort(new CompareWeight[10]);
+
     }
 }
