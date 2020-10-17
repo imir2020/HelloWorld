@@ -49,7 +49,7 @@ public class Animal implements CompareWeight, FoodCompare {
     @Override
     public boolean equals(Object anObject) {
         Animal animal = (Animal) anObject;
-        if (this == animal) return true;
+        if (this.toString() == animal.toString()) return true;
         if (animal == null || getClass() != animal.getClass()) return false;
         if (this.getWeight() != animal.getWeight() && getClass() == animal.getClass()) return false;
         if (animal != null || (getClass() == animal.getClass() && this.getWeight() == animal.getWeight())) return true;
@@ -111,7 +111,7 @@ public class Animal implements CompareWeight, FoodCompare {
         // System.out.println(one.toString());
         //System.out.println(one.toStringFull());
         //third.equals(new Hamster(20));
-        System.out.println(third.equals(new Hamster(1)));//Hamster
+        System.out.println(third.equals(new Hamster(2)));//Hamster
         one.compareFoodPrice(new Cow(450));
         System.out.println(second.compareFoodPrice(new Hamster(90)));
         //one.getFood1kgPrice();
