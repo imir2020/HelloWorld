@@ -23,14 +23,16 @@ public class Cow extends Animal {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if(o != null || getClass() == o.getClass())return  true;
-        Animal animal = (Animal) o;
+    public boolean equals(Object anObject) {
+        Animal animal = (Animal) anObject;
+        if (this == animal) return true;
+        if (animal == null || getClass() != animal.getClass()) return false;
+        if (this.getWeight() != animal.getWeight() && getClass() == animal.getClass()) return false;
+        if (animal != null || (getClass() == animal.getClass() && this.getWeight() == animal.getWeight())) return true;
         return Double.compare(animal.getWeight(), getWeight()) == 0 &&
                 Double.compare(animal.coeff, coeff) == 0;
     }
+
     @Override
     public double getFood1kgPrice() {
         return super.getFood1kgPrice();

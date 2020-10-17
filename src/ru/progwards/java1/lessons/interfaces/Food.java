@@ -13,7 +13,7 @@ public class Food implements CompareWeight {
 
     @Override
     public CompareResult compareWeight(CompareWeight smthHasWeigt) {
-        Food one = (Food) smthHasWeigt;//в параметре передаётся объект, записываемы в интерфейсную переменную.
+        Food one = (Food) smthHasWeigt;
         CompareResult result = null;
         if (getWeight() < one.getWeight()) {
             result = CompareResult.LESS;
@@ -26,13 +26,13 @@ public class Food implements CompareWeight {
         }
         return result;
     }
-//здесь должен сортироваться enum(это гипотеза)
+
     public static void sort(CompareWeight[] a) {
         Food[] b = new Food[a.length];
-        //Food[] b = (Food[]) new CompareWeight[a.length];//так не получится
-
         for (int i = 0; i < a.length; i++) {
-            b[i] = (Food) a[i];
+            b[i] = (Food)a[i];
+        }
+        for (int i = 0; i < a.length; i++) {
             for (int j = i + 1; j < a.length; j++) {
                 if (b[i].getWeight() > b[j].getWeight()) {
                     int temp;
@@ -41,14 +41,16 @@ public class Food implements CompareWeight {
                     b[j].weight = temp;
                 }
             }
-            System.out.println(b[i]);
+            System.out.println(b[i]);//test
+            System.out.println(b[i].getWeight());//test
         }
     }
     public static void main(String[] args) {
         Food second = new Food(1500);
         second.compareWeight(new Food(1600));
         System.out.println(second.compareWeight(new Food(1500)));
-        second.sort(new CompareWeight[10]);
+        CompareWeight[] a = new CompareWeight[]{new Food(43), new Food(49), new Food(56) };
+        second.sort(a);
 
     }
 }

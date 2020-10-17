@@ -1,7 +1,5 @@
 package ru.progwards.java1.lessons.interfaces;
 
-import java.util.Objects;
-
 public class Animal implements CompareWeight, FoodCompare {
     double weight;
     double coeff = 0.02;
@@ -48,19 +46,15 @@ public class Animal implements CompareWeight, FoodCompare {
         return "I am " + getKind() + ", eat " + getFoodKind() + " " + calculateFoodWeight();
     }
 
-
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if(o != null || getClass() == o.getClass())return  true;
-        Animal animal = (Animal) o;
+    public boolean equals(Object anObject) {
+        Animal animal = (Animal) anObject;
+        if (this == animal) return true;
+        if (animal == null || getClass() != animal.getClass()) return false;
+        if (this.getWeight() != animal.getWeight() && getClass() == animal.getClass()) return false;
+        if (animal != null || (getClass() == animal.getClass() && this.getWeight() == animal.getWeight())) return true;
         return Double.compare(animal.getWeight(), getWeight()) == 0 &&
                 Double.compare(animal.coeff, coeff) == 0;
-    }
-    @Override
-    public int hashCode() {
-        return Objects.hash(getWeight(), coeff);
     }
 
     @Override
@@ -112,12 +106,15 @@ public class Animal implements CompareWeight, FoodCompare {
     public static void main(String[] args) {
         Animal one = new Animal(450);
         Duck second = new Duck(4);
+        Hamster third = new Hamster(1);
         //one.toString();
-       // System.out.println(one.toString());
+        // System.out.println(one.toString());
         //System.out.println(one.toStringFull());
+        //third.equals(new Hamster(20));
+        System.out.println(third.equals(new Hamster(1)));//Hamster
         one.compareFoodPrice(new Cow(450));
-        System.out.println(second.compareFoodPrice(new Hamster(4)));
+        System.out.println(second.compareFoodPrice(new Hamster(90)));
         //one.getFood1kgPrice();
-       // System.out.println(one.getFood1kgPrice());
+        // System.out.println(one.getFood1kgPrice());
     }
 }

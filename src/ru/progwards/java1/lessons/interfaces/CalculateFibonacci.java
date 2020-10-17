@@ -13,12 +13,12 @@ public class CalculateFibonacci {
                 fibo = previousNumber + nextNumber;
                 previousNumber = nextNumber;
                 nextNumber = fibo;
-                lastFibo.fibo = nextNumber;
-                lastFibo.n = n;
             }
         } else {
             fibo = lastFibo.fibo;
         }
+        lastFibo.n = n;
+        lastFibo.fibo = nextNumber;
         return fibo;
     }
 
@@ -37,9 +37,9 @@ public class CalculateFibonacci {
 
     public static void main(String[] args) {
         CalculateFibonacci one = new CalculateFibonacci();
-        one.fiboNumber(1);
+        //one.fiboNumber(1);
         System.out.println(one.fiboNumber(11));
-        System.out.println(one.getLastFibo());
+        //System.out.println(one.getLastFibo());
         System.out.println(getLastFibo().n);
         System.out.println(getLastFibo().fibo);
         one.clearLastFibo();
