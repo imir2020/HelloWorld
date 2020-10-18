@@ -24,9 +24,9 @@ public class Cow extends Animal {
 
     @Override
     public boolean equals(Object anObject) {
+        if (this == anObject) return true;
+        if (anObject == null || getClass() != anObject.getClass()) return false;
         Animal animal = (Animal) anObject;
-        if (this.toString() == animal.toString()) return true;
-        if (animal == null || getClass() != animal.getClass()) return false;
         if (this.getWeight() != animal.getWeight() && getClass() == animal.getClass()) return false;
         if (animal != null || (getClass() == animal.getClass() && this.getWeight() == animal.getWeight())) return true;
         return Double.compare(animal.getWeight(), getWeight()) == 0 &&

@@ -46,11 +46,13 @@ public class Animal implements CompareWeight, FoodCompare {
         return "I am " + getKind() + ", eat " + getFoodKind() + " " + calculateFoodWeight();
     }
 
+
+
     @Override
     public boolean equals(Object anObject) {
+        if (this == anObject) return true;
+        if (anObject == null || getClass() != anObject.getClass()) return false;
         Animal animal = (Animal) anObject;
-        if (this.toString() == animal.toString()) return true;
-        if (animal == null || getClass() != animal.getClass()) return false;
         if (this.getWeight() != animal.getWeight() && getClass() == animal.getClass()) return false;
         if (animal != null || (getClass() == animal.getClass() && this.getWeight() == animal.getWeight())) return true;
         return Double.compare(animal.getWeight(), getWeight()) == 0 &&
@@ -107,13 +109,18 @@ public class Animal implements CompareWeight, FoodCompare {
         Animal one = new Animal(450);
         Duck second = new Duck(4);
         Hamster third = new Hamster(1);
+        Test test = new Test();
         //one.toString();
         // System.out.println(one.toString());
         //System.out.println(one.toStringFull());
-        //third.equals(new Hamster(20));
-        System.out.println(third.equals(new Hamster(1)));//Hamster
-        one.compareFoodPrice(new Cow(450));
-        System.out.println(second.compareFoodPrice(new Hamster(90)));
+
+        System.out.println(one.equals(new Test()));
+
+        System.out.println(one.equals(new Cow(45)));
+
+        System.out.println(third.equals(new Hamster(1)));
+        //one.compareFoodPrice(new Cow(450));
+        //System.out.println(second.compareFoodPrice(new Hamster(90)));
         //one.getFood1kgPrice();
         // System.out.println(one.getFood1kgPrice());
     }
