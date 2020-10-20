@@ -1,6 +1,6 @@
 package tests123;
 
-public class Point2D {
+public  class Point2D {
     int x;
     int y;
 
