@@ -27,37 +27,28 @@ public class Food implements CompareWeight {
         return result;
     }
 
-//    public static void sort(CompareWeight[] a) {
-//        Food[] b = new Food[a.length];
-//        for (int i = 0; i < a.length; i++) {
-//            b[i] = (Food)a[i];
-//        }
-//        for (int i = 0; i < a.length; i++) {
-//            for (int j = i + 1; j < a.length; j++) {
-//                if (b[i].getWeight() > b[j].getWeight()) {
-//                    int temp;
-//                    temp = b[i].getWeight();
-//                    b[i] = b[j];
-//                    b[j].weight = temp;
-//                }
-//            }
-//            System.out.println(b[i]);//test
-//            System.out.println(b[i].getWeight());//test
-//        }
-//    }
-
     public static void sort(CompareWeight[] a) {
-        for (int i = 0; i < a.length - 1 ; i++) {
+        for (int i = 0; i < a.length - 1; i++) {
             a[i].compareWeight(a[i + 1]);
+            if (a[i].compareWeight(a[i + 1]) != CompareResult.LESS) {
+                CompareWeight temp = a[i];
+                a[i] = a[i + 1];
+                a[i + 1] = temp;
+            }
             System.out.println(a[i].compareWeight(a[i + 1]));
+
+
         }
     }
+
     public static void main(String[] args) {
         Food second = new Food(1500);
-        second.compareWeight(new Food(1600));
-        System.out.println(second.compareWeight(new Food(1500)));
-        CompareWeight[] a = new CompareWeight[]{new Food(98), new Food(0), new Food(76) };
+        // second.compareWeight(new Food(1600));
+        //System.out.println(second.compareWeight(new Food(1500)));
+        CompareWeight[] a = new CompareWeight[]{new Animal(654), new Animal(43), new Animal(89),
+                new Animal(75)};
         second.sort(a);
+
 
     }
 }
