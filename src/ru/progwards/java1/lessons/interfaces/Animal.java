@@ -117,6 +117,6 @@ public class Animal implements CompareWeight, FoodCompare {
         //one.compareFoodPrice(new Cow(450));
         //System.out.println(second.compareFoodPrice(new Hamster(90)));
         //one.getFood1kgPrice();
-        // System.out.println(one.getFood1kgPrice());
+         System.out.println(one.getFoodPrice());
     }
 }

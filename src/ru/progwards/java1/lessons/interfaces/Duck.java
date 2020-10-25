@@ -39,6 +39,11 @@ public class Duck extends Animal {
     }
 
     @Override
+    public int compareFoodPrice() {
+        return super.compareFoodPrice();
+    }
+
+    @Override
     public int compareFoodPrice(Animal animal) {
         return super.compareFoodPrice(animal);
     }

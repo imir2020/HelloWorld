@@ -36,8 +36,6 @@ public class Food implements CompareWeight {
                 a[i + 1] = temp;
             }
             System.out.println(a[i].compareWeight(a[i + 1]));
-
-
         }
     }
 
@@ -48,7 +46,6 @@ public class Food implements CompareWeight {
         CompareWeight[] a = new CompareWeight[]{new Animal(654), new Animal(43), new Animal(89),
                 new Animal(75)};
         second.sort(a);
-
 
     }
 }
