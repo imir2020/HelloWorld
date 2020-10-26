@@ -7,7 +7,14 @@ public class IntInteger extends  AbsInteger {
         this.three = three;
     }
 
-    public static void main(String[] args) {
+    @Override
+    public String toString() {
+        String str = String.valueOf(this.three);
+        return str;
+    }
 
+    public static void main(String[] args) {
+        IntInteger third = new IntInteger(585);
+        System.out.println(third.toString());
     }
 }

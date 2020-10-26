@@ -7,7 +7,14 @@ public class ShortInteger extends  AbsInteger {
         this.two = two;
     }
 
-    public static void main(String[] args) {
+    @Override
+    public String toString() {
+        String str = String.valueOf(this.two);
+        return str;
+    }
 
+    public static void main(String[] args) {
+        ShortInteger second = new ShortInteger((short) 84);
+        System.out.println(second.toString());
     }
 }
