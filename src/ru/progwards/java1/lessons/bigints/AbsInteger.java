@@ -13,20 +13,23 @@ public class AbsInteger {
     public AbsInteger(String str) {
         this.str = str;
     }
+//этот конструктор для  опытов, для потомков этого класса
+    public AbsInteger() {
+
+    }
 
     @Override
     public String toString() {
         return str;
     }
 
-    // В этом методе,  не передаются объекты.
+
     @NotNull
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
         BigInteger res1 = new BigInteger(num1.toString());//
         BigInteger res2 = new BigInteger(num2.toString());
         BigInteger res3 = res1.add(res2);
         AbsInteger temp = new AbsInteger(String.valueOf(res3));
-
         return temp;
     }
 
