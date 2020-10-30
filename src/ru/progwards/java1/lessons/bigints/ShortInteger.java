@@ -4,7 +4,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.math.BigInteger;
 
-public class ShortInteger  extends  AbsInteger{//
+public class ShortInteger  extends  AbsInteger{
     short two;
 
     public ShortInteger(short two) {
