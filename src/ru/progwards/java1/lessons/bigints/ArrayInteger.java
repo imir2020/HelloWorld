@@ -49,7 +49,7 @@ public class ArrayInteger {
         for (int i = row; i > 0; i--) {
             Byte temp1 = digits[i];
             Byte temp2 = num.digits[i];
-            temp1 += temp2;
+            //temp1 += temp2;
         }
         return false;//заглушка
     }
