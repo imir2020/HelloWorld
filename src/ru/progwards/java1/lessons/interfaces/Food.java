@@ -35,7 +35,7 @@ public class Food implements CompareWeight {
                 a[i] = a[i + 1];
                 a[i + 1] = temp;
             }
-            System.out.println(a[i].compareWeight(a[i + 1]));
+            //System.out.println(a[i].compareWeight(a[i + 1]));
         }
     }
 

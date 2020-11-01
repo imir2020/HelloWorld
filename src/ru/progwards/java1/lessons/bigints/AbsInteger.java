@@ -4,38 +4,45 @@ import org.jetbrains.annotations.NotNull;
 
 import java.math.BigInteger;
 
-// Главная идея в следующем - сначала ввести в метод число, под видом строки, затем с помощью BigInteger
-// перевести число в строке в число, а затем, в классах наследниках, извлекать из BigInteger это число в нужный формат(для этого
-//есть методы в классе BigInteger.
+
 public class AbsInteger {
-    String str;
+    String string;
 
-    public AbsInteger(String str) {
-        this.str = str;
+    public AbsInteger(String string) {
+        this.string = string;
     }
-//этот конструктор для  опытов, для потомков этого класса
-    public AbsInteger() {
 
+    public AbsInteger() {
     }
 
     @Override
     public String toString() {
-        return str;
+        return string;
     }
 
 
-    @NotNull
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
-        BigInteger res1 = new BigInteger(num1.toString());//
-        BigInteger res2 = new BigInteger(num2.toString());
-        BigInteger res3 = res1.add(res2);
-        AbsInteger temp = new AbsInteger(String.valueOf(res3));
+       int result = num1.getValue() + num2.getValue();
+        AbsInteger temp = new AbsInteger(String.valueOf(result));
         return temp;
+    }
+
+    private int getValue() {
+        return Integer.parseInt(toString());
     }
 
     public static void main(String[] args) {
         AbsInteger one = new AbsInteger("123");
-        AbsInteger two = new AbsInteger("456");
+        AbsInteger two = new AbsInteger("446");
+        ShortInteger second = new ShortInteger((short) 84);
+        ShortInteger first = new ShortInteger((short) 93);
+        IntInteger third = new IntInteger(585);
+        IntInteger fourth = new IntInteger(-723);
+        ByteInteger past = new ByteInteger((byte) 23);
         System.out.println(one.add(one, two));
+        System.out.println();
+        System.out.println(one.add(second, third));
+        System.out.println();
+        System.out.println(one.add(past, fourth));
     }
 }

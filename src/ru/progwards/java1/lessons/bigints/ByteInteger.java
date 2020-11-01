@@ -9,8 +9,6 @@ public class ByteInteger  extends  AbsInteger{//
     byte one;
 
     public ByteInteger(byte one) {
-        super();
-
         this.one = one;
     }
 
@@ -20,14 +18,8 @@ public class ByteInteger  extends  AbsInteger{//
         return str;
     }
 
-    @NotNull
-    static AbsInteger add(AbsInteger num1, AbsInteger num2) {
-        BigInteger res1 = new BigInteger(num1.toString());//
-        BigInteger res2 = new BigInteger(num2.toString());
-        BigInteger res3 = res1.add(res2);
-        AbsInteger temp = new AbsInteger(String.valueOf(res3));
-        return temp;
-    }
+
+
     public static void main(String[] args) {
         ByteInteger first = new ByteInteger((byte) 23);
 
