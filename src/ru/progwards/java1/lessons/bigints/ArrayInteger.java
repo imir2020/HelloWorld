@@ -4,10 +4,8 @@ import java.math.BigInteger;
 
 public class ArrayInteger {
     private Byte[] digits;
-    int putVal;
 
     public ArrayInteger(int n) {
-        putVal = 0;
         digits = new Byte[n];
     }
 
@@ -38,7 +36,7 @@ public class ArrayInteger {
         }
         return new BigInteger(result);
     }
-
+// нужна проверка на отрицательные числа
     boolean add(ArrayInteger num) {
         int row;
         if (this.digits.length > num.digits.length) {
@@ -46,10 +44,13 @@ public class ArrayInteger {
         } else {
             row = num.digits.length + 1;
         }
-        for (int i = row; i > 0; i--) {
-            Byte temp1 = digits[i];
-            Byte temp2 = num.digits[i];
-            //temp1 += temp2;
+        //сложим массивы, игнорируя переполнения
+        for (int i = 0; i < row; i++) {
+            this.digits[i] = (byte) (this.digits[i] + num.digits[i]);
+        }
+        //В следующем цикле разберёмся с переполнениями.
+        for (int i = 0; i < row; i++) {
+
         }
         return false;//заглушка
     }

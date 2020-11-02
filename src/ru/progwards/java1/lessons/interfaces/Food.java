@@ -28,14 +28,16 @@ public class Food implements CompareWeight {
     }
 
     public static void sort(CompareWeight[] a) {
+
         for (int i = 0; i < a.length - 1; i++) {
-            a[i].compareWeight(a[i + 1]);
+
+             a[i].compareWeight(a[i + 1]);
             if (a[i].compareWeight(a[i + 1]) != CompareResult.LESS) {
                 CompareWeight temp = a[i];
                 a[i] = a[i + 1];
                 a[i + 1] = temp;
             }
-            //System.out.println(a[i].compareWeight(a[i + 1]));
+            //System.out.println(a[i].compareWeight(a[i + 1]));//test
         }
     }
 
