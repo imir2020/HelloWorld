@@ -1,10 +1,5 @@
 package ru.progwards.java1.lessons.bigints;
 
-import org.jetbrains.annotations.NotNull;
-
-import java.math.BigInteger;
-
-
 public class AbsInteger {
     String string;
 
@@ -20,19 +15,16 @@ public class AbsInteger {
         return string;
     }
 
-
     static AbsInteger add(AbsInteger num1, AbsInteger num2) {
         AbsInteger temp = null;
-       int result = num1.getValue() + num2.getValue();
-       if(result >= Byte.MIN_VALUE || result<= Byte.MAX_VALUE ){
-             temp = new AbsInteger(String.valueOf((byte)result));
-       }
-       else if(result >= Short.MIN_VALUE || result <= Short.MAX_VALUE){
-           temp = new AbsInteger(String.valueOf((short)result));
-       }
-       else if(result >= Integer.MIN_VALUE || result <= Integer.MAX_VALUE){
-           temp = new AbsInteger(String.valueOf(result));
-       }
+        int result = num1.getValue() + num2.getValue();
+        if (result >= Byte.MIN_VALUE || result <= Byte.MAX_VALUE) {
+            temp = new AbsInteger(String.valueOf((byte) result));
+        } else if (result >= Short.MIN_VALUE || result <= Short.MAX_VALUE) {
+            temp = new AbsInteger(String.valueOf((short) result));
+        } else if (result >= Integer.MIN_VALUE || result <= Integer.MAX_VALUE) {
+            temp = new AbsInteger(String.valueOf(result));
+        }
         return temp;
     }
 

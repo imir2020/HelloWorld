@@ -26,7 +26,7 @@ public class ArrayInteger {
             digits[i] = digits[res - 1 - i];
             digits[res - 1 - i] = temp;
         }
-   }
+    }
 
     BigInteger toInt() {
         String string;
@@ -37,7 +37,6 @@ public class ArrayInteger {
         }
         return new BigInteger(result);
     }
-
 
     boolean add(ArrayInteger num) {
         final int BASE = 10;
@@ -53,23 +52,23 @@ public class ArrayInteger {
         for (int i = 0; i < row; i++) {
             //System.out.println(digits[i]);//test
             digits[i] = (byte) (digits[i] + num.digits[i]);
-           // System.out.println(digits[i] + " 1");//test
-           // System.out.println(digits.length +  " digits.length ");
+            // System.out.println(digits[i] + " 1");//test
+            // System.out.println(digits.length +  " digits.length ");
 
         }
         for (int i = row - 1; i > 0; i--) {
             if (digits[i] >= BASE) {
                 digits[i] = (byte) (digits[i] - BASE);
                 digits[i - 1]++;
-               // System.out.print(digits[i] + " 3 ");//test
+                // System.out.print(digits[i] + " 3 ");//test
                 //System.out.println(digits[i - 1] + " 3 ");//test
             }
         }
         //test
         for (int i = 0; i < row; i++) {
-            if(digits[i] > 9){
+            if (digits[i] > 9) {
                 maxInt = false;
-                for (int j = 0; j < row; j++){
+                for (int j = 0; j < row; j++) {
                     digits[j] = 0;
                 }
             }
@@ -87,6 +86,6 @@ public class ArrayInteger {
         two.fromInt(new BigInteger("48"));
         one.toInt();
         //System.out.println(one.toInt());
-        System.out.println( one.add(two));
+        System.out.println(one.add(two));
     }
 }

@@ -1,10 +1,6 @@
 package ru.progwards.java1.lessons.bigints;
 
-import org.jetbrains.annotations.NotNull;
-
-import java.math.BigInteger;
-
-public class ByteInteger  extends  AbsInteger{//
+public class ByteInteger extends AbsInteger {
 
     byte one;
 
@@ -17,8 +13,6 @@ public class ByteInteger  extends  AbsInteger{//
         String str = String.valueOf(this.one);
         return str;
     }
-
-
 
     public static void main(String[] args) {
         ByteInteger first = new ByteInteger((byte) 23);

@@ -1,10 +1,6 @@
 package ru.progwards.java1.lessons.bigints;
 
-import org.jetbrains.annotations.NotNull;
-
-import java.math.BigInteger;
-
-public class IntInteger  extends  AbsInteger{//
+public class IntInteger extends AbsInteger {
     int three;
 
     public IntInteger(int three) {
