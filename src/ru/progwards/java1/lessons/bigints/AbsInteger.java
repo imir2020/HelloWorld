@@ -20,9 +20,9 @@ public class AbsInteger {
         int result = num1.getValue() + num2.getValue();
         if (result >= Byte.MIN_VALUE || result <= Byte.MAX_VALUE) {
             temp = new ByteInteger((byte) result);
-        } else if (result >= Short.MIN_VALUE || result <= Short.MAX_VALUE) {
+        } else if (result >= Short.MIN_VALUE && result < Byte.MIN_VALUE || result <= Short.MAX_VALUE && result > Byte.MAX_VALUE) {
             temp = new ShortInteger((short) result);
-        } else if (result >= Integer.MIN_VALUE || result <= Integer.MAX_VALUE) {
+        } else if (result >= Integer.MIN_VALUE && result < Short.MIN_VALUE || result <= Integer.MAX_VALUE && result > Short.MAX_VALUE) {
             temp = new IntInteger(result);
         }
         return temp;

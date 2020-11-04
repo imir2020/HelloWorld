@@ -30,7 +30,6 @@ public class Food implements CompareWeight {
     public static void sort(CompareWeight[] a) {
 
         for (int i = 0; i < a.length - 1; i++) {
-
              a[i].compareWeight(a[i + 1]);
             if (a[i].compareWeight(a[i + 1]) != CompareResult.LESS) {
                 CompareWeight temp = a[i];
