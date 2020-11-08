@@ -22,32 +22,6 @@ public class Duck extends Animal {
         return coeff;
     }
 
-    @Override
-    public boolean equals(Object anObject) {
-        if (this == anObject) return true;
-        if (anObject == null || getClass() != anObject.getClass()) return false;
-        Animal animal = (Animal) anObject;
-        if (this.getWeight() != animal.getWeight() && getClass() == animal.getClass()) return false;
-        if (animal != null || (getClass() == animal.getClass() && this.getWeight() == animal.getWeight())) return true;
-        return Double.compare(animal.getWeight(), getWeight()) == 0 &&
-                Double.compare(animal.coeff, coeff) == 0;
-    }
-
-    @Override
-    public double getFood1kgPrice() {
-        return super.getFood1kgPrice();
-    }
-
-    @Override
-    public int compareFoodPrice() {
-        return super.compareFoodPrice();
-    }
-
-    @Override
-    public int compareFoodPrice(Animal animal) {
-        return super.compareFoodPrice(animal);
-    }
-
     public static void main(String[] args) {
         Duck one = new Duck(5);
         one.equals(new Duck(5));

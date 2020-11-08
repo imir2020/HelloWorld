@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class DIntArray {
 
-    private int ind = 0;
+    private int ind;
     private int[] first = new int[0];
     public DIntArray() {
     }

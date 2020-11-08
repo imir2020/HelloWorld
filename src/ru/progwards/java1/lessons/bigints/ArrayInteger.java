@@ -1,6 +1,7 @@
 package ru.progwards.java1.lessons.bigints;
 
 import java.math.BigInteger;
+import java.util.Arrays;
 
 
 public class ArrayInteger {
@@ -21,11 +22,11 @@ public class ArrayInteger {
             value = value.divide(BigInteger.TEN);
         }
 //Реверс массива
-        for (int i = 0; i < res / 2; i++) {
-            byte temp = digits[i];
-            digits[i] = digits[res - 1 - i];
-            digits[res - 1 - i] = temp;
-        }
+//        for (int i = 0; i < res / 2; i++) {
+//            byte temp = digits[i];
+//            digits[i] = digits[res - 1 - i];
+//            digits[res - 1 - i] = temp;
+//        }
     }
 
     BigInteger toInt() {
@@ -41,27 +42,27 @@ public class ArrayInteger {
     boolean add(ArrayInteger num) {
         final int BASE = 10;
         int row;
+        int row2;
         boolean maxInt = true;
-        if (digits.length > num.digits.length) {
-            row = digits.length;
-
-        } else {
+        if (digits.length >= num.digits.length) {
+            //num.digits = Arrays.copyOf(num.digits, digits.length);
             row = num.digits.length;
-
+            row2 = digits.length;
+        } else {
+            //digits = Arrays.copyOf(digits, num.digits.length);
+            row = digits.length;
+            row2 = num.digits.length;
         }
         for (int i = 0; i < row; i++) {
-            //System.out.println(digits[i]);//test
+
             digits[i] = (byte) (digits[i] + num.digits[i]);
-            // System.out.println(digits[i] + " 1");//test
-            // System.out.println(digits.length +  " digits.length ");
+
 
         }
-        for (int i = row - 1; i > 0; i--) {
+        for (int i = 0; i < row - 1; i++) {
             if (digits[i] >= BASE) {
                 digits[i] = (byte) (digits[i] - BASE);
-                digits[i - 1]++;
-                // System.out.print(digits[i] + " 3 ");//test
-                //System.out.println(digits[i - 1] + " 3 ");//test
+                digits[i + 1]++;
             }
         }
         //test
@@ -82,8 +83,8 @@ public class ArrayInteger {
     public static void main(String[] args) {
         ArrayInteger one = new ArrayInteger(3);
         ArrayInteger two = new ArrayInteger(3);
-        one.fromInt(new BigInteger("33"));
-        two.fromInt(new BigInteger("48"));
+        one.fromInt(new BigInteger("31"));
+        two.fromInt(new BigInteger("9"));
         one.toInt();
         //System.out.println(one.toInt());
         System.out.println(one.add(two));

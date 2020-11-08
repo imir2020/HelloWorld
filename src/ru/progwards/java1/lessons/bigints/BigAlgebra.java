@@ -1,10 +1,13 @@
 package ru.progwards.java1.lessons.bigints;
 
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
 public class BigAlgebra {
-    BigDecimal fastPow(BigDecimal num, int pow) {
+    static BigDecimal fastPow(BigDecimal num, int pow) {
         String temp = Integer.toBinaryString(pow);
         int result = Integer.parseInt(temp);
         int low;
@@ -21,7 +24,8 @@ public class BigAlgebra {
         }
         return new BigDecimal(String.valueOf(res));
     }
-    BigInteger fibonacci(int n) {
+
+   static BigInteger fibonacci(int n) {
         BigInteger sum = BigInteger.ONE;
         BigInteger previousNumber = BigInteger.ZERO;
         BigInteger nextNumber = BigInteger.ONE;
@@ -32,6 +36,9 @@ public class BigAlgebra {
         }
         return new BigInteger(String.valueOf(sum));
     }
+//    Задача 1. Класс BigAlgebra:
+//    Ошибка 1: non-static method fastPow(java.math.BigDecimal,int) cannot be referenced from a static context
+//    Ошибка 2: non-static method fibonacci(int) cannot be referenced from a static context
     public static void main(String[] args) {
         BigAlgebra one = new BigAlgebra();
         System.out.println(one.fastPow(new BigDecimal(21), 13));

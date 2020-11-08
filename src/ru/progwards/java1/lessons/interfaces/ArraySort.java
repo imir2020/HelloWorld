@@ -1,12 +1,13 @@
 package ru.progwards.java1.lessons.interfaces;
 
+import java.util.Arrays;
+
 public class ArraySort {
-    public static void sort(int[] a) {
+    public static void sort(CompareWeight[] a) {
         for (int i = 0; i < a.length; i++) {
             for (int j = i + 1; j < a.length; j++) {
-                if (a[i] > a[j]) {
-                    int temp;
-                    temp = a[i];
+                if (a[i].compareWeight(a[i + 1]) == CompareWeight.CompareResult.GREATER) {
+                    CompareWeight  temp = a[i];
                     a[i] = a[j];
                     a[j] = temp;
                 }
@@ -16,11 +17,10 @@ public class ArraySort {
 
     public static void main(String[] args) {
         ArraySort one = new ArraySort();
-        int[] b = new int[]{12, 43, -13, 54, 684, -42, 0, -1, 56, -93};
-        one.sort(b);
-        for (int i = 0; i < b.length; i++) {
-            System.out.println(b[i]);
-        }
+        CompareWeight[] a = new CompareWeight[]{new Animal(0), new Cow(43), new Hamster(89),
+               new Duck(75)};
+        one.sort(a);
+        System.out.println(Arrays.toString(a));
     }
 }
 
