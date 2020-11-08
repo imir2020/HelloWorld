@@ -1,6 +1,6 @@
 package ru.progwards.java1.lessons.interfaces;
 
-import java.util.Arrays;
+        import java.util.Arrays;
 
 public class Food implements CompareWeight {
     private int weight;
@@ -19,7 +19,7 @@ public class Food implements CompareWeight {
         if (this.getWeight() < one.getWeight()) {
             return CompareResult.LESS;
         }else if (this.getWeight() == one.getWeight()) {
-           return CompareResult.EQUAL;
+            return CompareResult.EQUAL;
         }else  {
             return CompareResult.GREATER;
         }
