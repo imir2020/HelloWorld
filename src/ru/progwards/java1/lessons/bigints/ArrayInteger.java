@@ -42,22 +42,25 @@ public class ArrayInteger {
     boolean add(ArrayInteger num) {
         final int BASE = 10;
         int row;
-        int row2;
         boolean maxInt = true;
         if (digits.length >= num.digits.length) {
-            //num.digits = Arrays.copyOf(num.digits, digits.length);
             row = num.digits.length;
-            row2 = digits.length;
+
+            for (int i = 0; i < row; i++) {
+
+                digits[i] = (byte) (digits[i] + num.digits[i]);
+
+                System.out.println(digits[i]);
+            }
+
         } else {
-            //digits = Arrays.copyOf(digits, num.digits.length);
+
             row = digits.length;
-            row2 = num.digits.length;
-        }
-        for (int i = 0; i < row; i++) {
 
-            digits[i] = (byte) (digits[i] + num.digits[i]);
-
-
+            for (int i = 0; i < row; i++) {
+                num.digits[i] = (byte) (digits[i] + num.digits[i]);
+            }
+            digits = Arrays.copyOf(digits, num.digits.length);
         }
         for (int i = 0; i < row - 1; i++) {
             if (digits[i] >= BASE) {
@@ -73,10 +76,9 @@ public class ArrayInteger {
                     digits[j] = 0;
                 }
             }
-            System.out.print(digits[i]);//test// + " 2 "
+            //System.out.print(digits[i]);//test// + " 2 "
         }
-        System.out.println();//test
-
+        //System.out.println();//test
         return maxInt;
     }
 
