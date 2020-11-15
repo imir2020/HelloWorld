@@ -5,6 +5,10 @@ package ru.progwards.java1.lessons.bigints;
         import java.math.BigInteger;
 
 public class BigAlgebra {
+
+    static BigDecimal test(){
+        return new BigDecimal(280).pow(84);
+    }
     static BigDecimal fastPow(BigDecimal num, int pow) {
         String temp = Integer.toBinaryString(pow);
         int result = Integer.parseInt(temp);
@@ -39,8 +43,8 @@ public class BigAlgebra {
 //    Ошибка 2: non-static method fibonacci(int) cannot be referenced from a static context
     public static void main(String[] args) {
         BigAlgebra one = new BigAlgebra();
-        System.out.println(one.fastPow(new BigDecimal(21), 13));
+        System.out.println(one.fastPow(new BigDecimal(280), 84));
         System.out.println(one.fibonacci(59));
-
+        System.out.println(test());
     }
 }

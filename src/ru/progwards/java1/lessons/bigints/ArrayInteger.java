@@ -1,7 +1,6 @@
 package ru.progwards.java1.lessons.bigints;
 
 import java.math.BigInteger;
-import java.util.Arrays;
 
 
 public class ArrayInteger {
@@ -21,7 +20,7 @@ public class ArrayInteger {
             }
             value = value.divide(BigInteger.TEN);
         }
-//Реверс массива
+        //Реверс массива
 //        for (int i = 0; i < res / 2; i++) {
 //            byte temp = digits[i];
 //            digits[i] = digits[res - 1 - i];
@@ -39,56 +38,85 @@ public class ArrayInteger {
         return new BigInteger(result);
     }
 
+    //    boolean add(ArrayInteger num) {
+//        boolean responce = true;
+//        byte ten = 0;
+//        int row = Math.max(num.digits.length, this.digits.length);
+//        byte result;
+//        byte[] temp = new byte[row];
+//        for (int i = temp.length - 1; i >= 0; i--) {
+//            if(num.digits.length <= i){
+//                temp[i] = 0;
+//            }
+//
+//            temp[i] = (byte) (((num.digits.length <= i) ? 0 : num.digits[i])
+//                    + ((this.digits.length <= i) ? 0 : this.digits[i]) + ten);
+//            if (temp[i] > 9) {
+//                ten = (byte) (temp[i] > 9 ? 1 : 0);
+//                temp[i] = 0;
+//            }
+//            System.out.print(temp[i] + " temp ");
+//
+//        }
+//
+//        return responce;
+//
+//    }
     boolean add(ArrayInteger num) {
+        boolean responce = true;
         final int BASE = 10;
-        int row;
-        boolean maxInt = true;
-        if (digits.length >= num.digits.length) {
-            row = num.digits.length;
+        int row = Math.max(num.digits.length, this.digits.length);
+        byte[] temp = new byte[row];
+        for (int i = temp.length - 1; i >= 0; i--) {
+            temp[i] = (byte) (((num.digits.length <= i) ? 0 : num.digits[i]) + ((this.digits.length <= i) ? 0 : this.digits[i]));
+            System.out.print(temp[i] + " r ");
 
-            for (int i = 0; i < row; i++) {
-
-                digits[i] = (byte) (digits[i] + num.digits[i]);
-
-                System.out.println(digits[i]);
-            }
-
-        } else {
-
-            row = digits.length;
-
-            for (int i = 0; i < row; i++) {
-                num.digits[i] = (byte) (digits[i] + num.digits[i]);
-            }
-            digits = Arrays.copyOf(digits, num.digits.length);
         }
-        for (int i = 0; i < row - 1; i++) {
-            if (digits[i] >= BASE) {
-                digits[i] = (byte) (digits[i] - BASE);
-                digits[i + 1]++;
+        for (int i = 0; i < this.digits.length; i++) {
+            if (temp[i] > (BASE - 1) && (i + 1) < temp.length) {
+                temp[i] = (byte) (temp[i] - BASE);
+                temp[i + 1] = (byte) (temp[i + 1] + 1);
+            } else if (temp[i] > (BASE - 1) && (i + 1) >= temp.length) {
+                this.digits[i] = 0;
+                responce = false;
             }
+
+            System.out.print(temp[i] + " tr ");
         }
-        //test
-        for (int i = 0; i < row; i++) {
-            if (digits[i] > 9) {
-                maxInt = false;
-                for (int j = 0; j < row; j++) {
-                    digits[j] = 0;
-                }
-            }
-            //System.out.print(digits[i]);//test// + " 2 "
-        }
-        //System.out.println();//test
-        return maxInt;
+        return responce;
     }
+
+//    boolean add(ArrayInteger num) {
+//        boolean responce = true;
+//        final int BASE = 10;
+//        int count = Math.min(num.digits.length, this.digits.length);
+//        for (int i = 0; i < count; i++) {
+//            for (int j = 0; j < count; j++) {
+//                this.digits[i] = (byte) (this.digits[i] + num.digits[j]);
+//            }
+//            System.out.println(this.digits[i]);
+//        }
+//        for (int i = 0; i < this.digits.length; i++) {
+//            if (this.digits[i] > (BASE - 1) && (i + 1) < this.digits.length) {
+//                this.digits[i] = (byte) (this.digits[i] - BASE);
+//                this.digits[i + 1] = (byte) (this.digits[i + 1] + 1);
+//            } else if (this.digits[i] > (BASE - 1) && (i + 1) >= this.digits.length) {
+//                this.digits[i] = 0;
+//             responce = false;
+//            }
+//            System.out.print(digits[i] + " try ");
+//        }
+//        return responce;
+//    }
 
     public static void main(String[] args) {
         ArrayInteger one = new ArrayInteger(3);
         ArrayInteger two = new ArrayInteger(3);
-        one.fromInt(new BigInteger("31"));
-        two.fromInt(new BigInteger("9"));
-        one.toInt();
+        one.fromInt(new BigInteger("54"));
+        two.fromInt(new BigInteger("49"));
+        // one.toInt();
         //System.out.println(one.toInt());
+        //one.add(two);
         System.out.println(one.add(two));
     }
 }
