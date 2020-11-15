@@ -72,16 +72,27 @@ public class ArrayInteger {
             System.out.print(temp[i] + " r ");
 
         }
-        for (int i = 0; i < this.digits.length; i++) {
+        for (int i = 0; i < row; i++) {
             if (temp[i] > (BASE - 1) && (i + 1) < temp.length) {
                 temp[i] = (byte) (temp[i] - BASE);
                 temp[i + 1] = (byte) (temp[i + 1] + 1);
-            } else if (temp[i] > (BASE - 1) && (i + 1) >= temp.length) {
-                this.digits[i] = 0;
+            } else if (temp[i] > (BASE - 1) && (i + 1) >= temp.length ) {
+                for (int j = 0; j < row ; j++) {
+                    temp[j] = 0;
+                }
+                responce = false;
+
+                //Дополнительная проверка, вмещается ли получившееся число в массив экземпляра, у которого вызвали метод.
+            } else if(temp[i] <= BASE - 1 &&this.digits.length <temp.length){
+                for (int j = 0; j < row ; j++) {
+                    temp[j] = 0;
+                }
                 responce = false;
             }
+        }
 
-            System.out.print(temp[i] + " tr ");
+        for (Byte f: temp) {
+            System.out.print(f + " tr ");
         }
         return responce;
     }
@@ -112,8 +123,8 @@ public class ArrayInteger {
     public static void main(String[] args) {
         ArrayInteger one = new ArrayInteger(3);
         ArrayInteger two = new ArrayInteger(3);
-        one.fromInt(new BigInteger("54"));
-        two.fromInt(new BigInteger("49"));
+        one.fromInt(new BigInteger("11"));
+        two.fromInt(new BigInteger("86"));
         // one.toInt();
         //System.out.println(one.toInt());
         //one.add(two);
