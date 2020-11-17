@@ -1,7 +1,5 @@
 package ru.progwards.java1.lessons.io1;
 
-import org.w3c.dom.ls.LSOutput;
-
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -17,11 +15,10 @@ public class LineCount {
             try {
                 while (sc.hasNextLine()) {
                     String valueIfNull = sc.nextLine();
-                    System.out.println(valueIfNull);
-//                    if (valueIfNull.trim().isEmpty()) {
+//                    if (valueIfNull.isEmpty()) {
 //                        countNull++;
 //                    }
-                    if(valueIfNull.length() ==0){
+                    if (valueIfNull != null && valueIfNull.length() == 0) {
                         countNull++;
                     }
                 }
@@ -29,16 +26,20 @@ public class LineCount {
                 reader.close();
             }
         } catch (FileNotFoundException e) {
+            //e.printStackTrace();
+            countNull = -1;
+            return countNull;
+        } catch (IOException e) {
             e.printStackTrace();
-        } catch (IOException e){
-            e.printStackTrace();
+            countNull = -1;
+            return countNull;
         }
-        System.out.println(countNull);
         return countNull;
     }
 
     public static void main(String[] args) {
         LineCount lineCount = new LineCount();
-        lineCount.calcEmpty("src/ru/progwards/java1/lessons/io1/inFileName");
+        lineCount.calcEmpty("");
+        System.out.println(lineCount.calcEmpty("src/ru/progwards/java1/lessons/io1/inFileName"));//
     }
 }
