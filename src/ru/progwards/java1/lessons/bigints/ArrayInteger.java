@@ -1,19 +1,19 @@
 package ru.progwards.java1.lessons.bigints;
 
 import java.math.BigInteger;
-
+//Везде, где можно, применять BigInteger  и BigDecimal, а также отдельные экспериментальные классы и/или массивы
 
 public class ArrayInteger {
-    private Byte[] digits;
+    private byte[] digits;
 
     public ArrayInteger(int n) {
-        digits = new Byte[n];
+        digits = new byte[n];
     }
 
     void fromInt(BigInteger value) {
         String str = value.toString();
         int res = str.length();
-        digits = new Byte[res];
+        //digits = new Byte[res];
         for (int i = 0; i < res; i++) {
             if (!value.equals(BigInteger.ZERO)) {
                 digits[i] = value.mod(BigInteger.TEN).byteValueExact();
@@ -37,7 +37,7 @@ public class ArrayInteger {
         }
         return new BigInteger(result);
     }
-    
+
     boolean add(ArrayInteger num) {
         boolean responce = true;
         final int BASE = 10;
@@ -52,15 +52,15 @@ public class ArrayInteger {
             if (temp[i] > (BASE - 1) && (i + 1) < temp.length) {
                 temp[i] = (byte) (temp[i] - BASE);
                 temp[i + 1] = (byte) (temp[i + 1] + 1);
-            } else if (temp[i] > (BASE - 1) && (i + 1) >= temp.length ) {
-                for (int j = 0; j < row ; j++) {
+            } else if (temp[i] > (BASE - 1) && (i + 1) >= temp.length) {
+                for (int j = 0; j < row; j++) {
                     temp[j] = 0;
                 }
                 responce = false;
 
                 //Дополнительная проверка, вмещается ли получившееся число в массив экземпляра, у которого вызвали метод.
-            } else if(temp[i] <= BASE - 1 &&this.digits.length <temp.length){
-                for (int j = 0; j < row ; j++) {
+            } else if (temp[i] <= BASE - 1 && this.digits.length < temp.length) {
+                for (int j = 0; j < row; j++) {
                     temp[j] = 0;
                 }
                 responce = false;
@@ -84,8 +84,8 @@ public class ArrayInteger {
         ArrayInteger two = new ArrayInteger(6);
         one.fromInt(new BigInteger("11084459"));
         two.fromInt(new BigInteger("118971"));
-        // one.toInt();
-        //System.out.println(one.toInt());
+        one.toInt();
+        System.out.println(one.toInt());
         //one.add(two);
         System.out.println(one.add(two));
         System.out.println(one.toInt());

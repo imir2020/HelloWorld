@@ -1,22 +1,22 @@
 package ru.progwards.java1.lessons.bigints;
 
 
-        import java.math.BigDecimal;
-        import java.math.BigInteger;
+import java.math.BigDecimal;
+import java.math.BigInteger;
 
+//Везде, где можно, применять BigInteger  и BigDecimal, а также отдельные экспериментальные классы и/или массивы
+//Перестать втискивать код в некие рамки дозволенного. Решать программы любыми доступными способами и методами.
 public class BigAlgebra {
 
-    static BigDecimal test(){
-        return new BigDecimal(280).pow(84);
-    }
     static BigDecimal fastPow(BigDecimal num, int pow) {
+        //заменить всё на BigDecimal
         String temp = Integer.toBinaryString(pow);
         int result = Integer.parseInt(temp);
         int low;
         BigDecimal res = BigDecimal.ONE;
         for (int i = temp.length() - 1; i >= 0; i--) {
             low = (result >> i) & 1;
-            if (i !=0) {
+            if (i != 0) {
                 res = res.multiply(num.pow(low));
                 res = res.pow(2);
             }
@@ -38,13 +38,11 @@ public class BigAlgebra {
         }
         return new BigInteger(String.valueOf(sum));
     }
-    //    Задача 1. Класс BigAlgebra:
-//    Ошибка 1: non-static method fastPow(java.math.BigDecimal,int) cannot be referenced from a static context
-//    Ошибка 2: non-static method fibonacci(int) cannot be referenced from a static context
+
     public static void main(String[] args) {
         BigAlgebra one = new BigAlgebra();
-        System.out.println(one.fastPow(new BigDecimal(280), 84));
+        System.out.println(one.fastPow(new BigDecimal(2), 100000));
         System.out.println(one.fibonacci(59));
-        System.out.println(test());
+
     }
 }
