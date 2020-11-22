@@ -26,7 +26,6 @@ public class LineCount {
                 reader.close();
             }
         } catch (FileNotFoundException e) {
-            //e.printStackTrace();
             countNull = -1;
             return countNull;
         } catch (IOException e) {

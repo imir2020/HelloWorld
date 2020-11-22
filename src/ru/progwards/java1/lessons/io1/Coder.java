@@ -15,57 +15,51 @@ import java.util.ArrayList;
 
 public class Coder {
 
-    public static void codeFile(String inFileName, String outFileName, char[] code, String logName) {
-
-        FileReader readInFile;
-        FileWriter writeInFile;
+    public static void codeFile(String inFileName, String outFileName, char[] code, String logName) throws IOException {
+        FileReader readInFile = new FileReader(inFileName);
+        FileWriter writeInFile = new FileWriter(outFileName);
         try {
-            readInFile = new FileReader(inFileName);
-            writeInFile = new FileWriter(outFileName);
+            int symbol;
+            ArrayList<Character> buffer = new ArrayList<>();
 
-            try {
-                int symbol;
-                ArrayList<Character> buffer = new ArrayList<>();
-
-                while ((symbol = readInFile.read()) != -1) {
-                    buffer.add((char) symbol);
-                }
-
-                char key = code[0];
-
-                // что-то похожее на шифрование.
-                for (int i = 0; i < buffer.size(); i++) {
-                    buffer.set(i, (char) (buffer.get(i) + key));
-                    writeInFile.write(buffer.get(i));
-                }
-
-                //Block for test
-                for (char s : buffer) {
-                    System.out.println(s);
-                }
-
-            } catch (IOException ex) {
-                ex.printStackTrace();
-                // какие конкретно ошибки должно "отлавливать" это исключение?
-                writeInFile = new FileWriter("logName");
-                writeInFile.write(ex.getMessage() + " Mistake");
-
-            } finally {
-                readInFile.close();
-                writeInFile.close();
+            while ((symbol = readInFile.read()) != -1) {
+                buffer.add((char) symbol);
             }
-        } catch (IOException etx) {
-            etx.printStackTrace();
-        } catch (IndexOutOfBoundsException e) {
-            e.printStackTrace();
+
+            char key = code[0];
+
+            // что-то похожее на шифрование.
+            for (int i = 0; i < buffer.size(); i++) {
+                buffer.set(i, (char) (buffer.get(i) + key));
+                writeInFile.write(buffer.get(i));
+            }
+
+            //Block for test
+            for (char s : buffer) {
+                System.out.println(s);
+            }
+
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            // какие конкретно ошибки должно "отлавливать" это исключение?
+            writeInFile = new FileWriter("logName");
+            writeInFile.write(ex.getMessage() + " Mistake");
+        } finally {
+            readInFile.close();
+            writeInFile.close();
         }
+
     }
 
     public static void main(String[] args) {
-        Coder coder = new Coder();
+
         char[] code = {3};
-        coder.codeFile("src/ru/progwards/java1/lessons/io1/inFileName",
-                "src/ru/progwards/java1/lessons/io1/outFileName", code,
-                "src/ru/progwards/java1/lessons/io1/logName");
+        try {
+            codeFile("src/ru/progwards/java1/lessons/io1/inFileName",
+                    "src/ru/progwards/java1/lessons/io1/outFileName", code,
+                    "src/ru/progwards/java1/lessons/io1/logName");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
