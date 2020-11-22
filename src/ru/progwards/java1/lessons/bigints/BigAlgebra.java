@@ -8,23 +8,34 @@ import java.math.BigInteger;
 //Перестать втискивать код в некие рамки дозволенного. Решать программы любыми доступными способами и методами.
 public class BigAlgebra {
 
+//    static BigDecimal fastPow(BigDecimal num, int pow) {
+//        //заменить всё на BigDecimal
+//        String temp = Integer.toBinaryString(pow);
+//        int result = Integer.parseInt(temp);
+//        int low;
+//        BigDecimal res = BigDecimal.ONE;
+//        for (int i = temp.length() - 1; i >= 0; i--) {
+//            low = (result >> i) & 1;
+//            if (i != 0) {
+//                res = res.multiply(num.pow(low));
+//                res = res.pow(2);
+//            }
+//            if (i == 0) {
+//                res = res.multiply(num.pow(low));
+//            }
+//        }
+//        return new BigDecimal(String.valueOf(res));
+//    }
+
     static BigDecimal fastPow(BigDecimal num, int pow) {
-        //заменить всё на BigDecimal
-        String temp = Integer.toBinaryString(pow);
-        int result = Integer.parseInt(temp);
-        int low;
-        BigDecimal res = BigDecimal.ONE;
-        for (int i = temp.length() - 1; i >= 0; i--) {
-            low = (result >> i) & 1;
-            if (i != 0) {
-                res = res.multiply(num.pow(low));
-                res = res.pow(2);
-            }
-            if (i == 0) {
-                res = res.multiply(num.pow(low));
-            }
+        switch (pow) {
+            case 0: return BigDecimal.ONE;
+            case 1: return num;
+            case 2: return num.multiply(num);
         }
-        return new BigDecimal(String.valueOf(res));
+        int pow2 = pow / 2;
+        BigDecimal t = num.multiply(num);
+        return pow % 2 == 0 ? fastPow(t, pow2) : num.multiply(fastPow(t, pow2));
     }
 
     static BigInteger fibonacci(int n) {

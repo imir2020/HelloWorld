@@ -17,7 +17,7 @@ public class Coder {
 
     public static void codeFile(String inFileName, String outFileName, char[] code, String logName) throws IOException {
         FileReader readInFile = new FileReader(inFileName);
-        FileWriter writeInFile = new FileWriter(outFileName);
+        FileWriter writeInFile = new FileWriter(outFileName, false);
         try {
             int symbol;
             ArrayList<Character> buffer = new ArrayList<>();
@@ -25,7 +25,10 @@ public class Coder {
             while ((symbol = readInFile.read()) != -1) {
                 buffer.add((char) symbol);
             }
-
+//            while (readInFile.ready()) {
+//                symbol
+//                buffer.add((char) symbol);
+//            }
             char key = code[0];
 
             // что-то похожее на шифрование.
