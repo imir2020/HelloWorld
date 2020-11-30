@@ -35,7 +35,7 @@ public class ArrayInteger {
             string = String.valueOf(digits[i]);
             result = result + string;
         }
-        return new BigInteger(result);
+        return new BigInteger(String.valueOf(result));
     }
 
     boolean add(ArrayInteger num) {
@@ -45,7 +45,7 @@ public class ArrayInteger {
         byte[] temp = new byte[row];
         for (int i = temp.length - 1; i >= 0; i--) {
             temp[i] = (byte) (((num.digits.length <= i) ? 0 : num.digits[i]) + ((this.digits.length <= i) ? 0 : this.digits[i]));
-            System.out.print(temp[i] + " r ");
+            System.out.print(temp[i] + " r ");//test
 
         }
         for (int i = 0; i < row; i++) {

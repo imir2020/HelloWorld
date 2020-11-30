@@ -4,10 +4,8 @@ package ru.progwards.java1.lessons.bigints;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 
-//Везде, где можно, применять BigInteger  и BigDecimal, а также отдельные экспериментальные классы и/или массивы
-//Перестать втискивать код в некие рамки дозволенного. Решать программы любыми доступными способами и методами.
 public class BigAlgebra {
-
+//Здесь нужно было поменять всё что нужно на BigDecimal
 //    static BigDecimal fastPow(BigDecimal num, int pow) {
 //        //заменить всё на BigDecimal
 //        String temp = Integer.toBinaryString(pow);
@@ -35,7 +33,7 @@ public class BigAlgebra {
         }
         int pow2 = pow / 2;
         BigDecimal t = num.multiply(num);
-        return pow % 2 == 0 ? fastPow(t, pow2) : num.multiply(fastPow(t, pow2));
+        return pow % 2 == 0 ? fastPow(t, pow2) : num.multiply(fastPow(t, pow2));//так тоже можно
     }
 
     static BigInteger fibonacci(int n) {
