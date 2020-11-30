@@ -1,17 +1,23 @@
 package ru.progwards.java1.lessons.io2;
 
 public class PhoneNumber {
-    //первый вариант решения.
+
     private static final String[] matrix = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
     private static final int numberPhoneLength = 11;
 
-    private final static String numberPhoneCode = "+7";
+    private final static String firstNumberPhoneCode = "+7";
     private final static String errorFirstNumber = "8";
 
     /*
     Это первая версия этого решения, вторая версия, - с регулярными выражениями, будет намного более
     компактной.
      */
+     /*
+   Интересно, а Integer.parseInt() -  может этот метод извлекает только цифры? - и тогда
+    данный метод можно значительно упростить
+     */
+
+    //первый вариант решения.
     public static String format(String phone) {
         String[] phoneNumbers = new String[phone.length()];
         StringBuilder cleanPhoneNumber = new StringBuilder();
@@ -25,7 +31,7 @@ public class PhoneNumber {
             for (int j = 0; j < matrix.length; j++) {
                 if (phoneNumbers[i].equals(matrix[j])) {
                     if (phoneNumbers[0].equals(errorFirstNumber)) {
-                        phoneNumbers[0] = numberPhoneCode;
+                        phoneNumbers[0] = firstNumberPhoneCode;
                     }
                     cleanPhoneNumber.append(phoneNumbers[i]);
                     count++;
@@ -33,7 +39,7 @@ public class PhoneNumber {
             }
             System.out.println(cleanPhoneNumber + "  " + count);//test
         }
-        if (phone.length() != numberPhoneLength) {
+        if (count != numberPhoneLength) {
             throw new RuntimeException("Wrong phone number");
         }
  /*
