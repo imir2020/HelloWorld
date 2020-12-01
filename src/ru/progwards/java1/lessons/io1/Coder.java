@@ -22,7 +22,7 @@ public class Coder {
                     writeInFile.write(code[symbol]); //hint&tips
                 }
         } catch (IOException e){
-            writeLogName = new FileWriter("logName");
+            writeLogName = new FileWriter(logName);
             writeLogName.write(e.getMessage());
         }
     }
