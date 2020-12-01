@@ -13,25 +13,28 @@ public class Coder {
 
     public static void codeFile(String inFileName, String outFileName, char[] code, String logName) {
 
-        FileWriter writeLogName;
-        try (FileReader readInFile = new FileReader(inFileName);
-             FileWriter writeInFile = new FileWriter(outFileName, false)) {
+        try ( FileReader readInFile = new FileReader(inFileName);
+              FileWriter writeInFile = new FileWriter(outFileName)) {
             int symbol;
             while ((symbol = readInFile.read()) != -1) {
                 // System.out.println(symbol);//test
                 writeInFile.write(code[symbol]); //hint&tips
             }
+
         } catch (IOException e) {
+
             try {
-                writeLogName = new FileWriter(logName);
+                //System.out.println(e.getMessage());
+                FileWriter writeLogName = new FileWriter(logName);
+               // String temp = e.getMessage();
                 writeLogName.write(e.getMessage());
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
         }
     }
-    
-    public static void main(String[] args) throws IOException {
+
+    public static void main(String[] args) {
         char[] code = new char[8213];
         codeFile("src/ru/progwards/java1/lessons/io1/inFileName",
                 "src/ru/progwards/java1/lessons/io1/outFileName", code,
