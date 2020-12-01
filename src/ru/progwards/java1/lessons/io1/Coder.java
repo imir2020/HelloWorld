@@ -28,11 +28,13 @@ public class Coder {
         } finally {
             try {
                 readInFile.close();
-            } catch (IOException ignored) {
+            } catch (IOException i) {
+                i.printStackTrace();
             }
             try {
                 writeInFile.close();
-            } catch (IOException ignored) {
+            } catch (IOException i) {
+                i.printStackTrace();
             }
         }
     }
