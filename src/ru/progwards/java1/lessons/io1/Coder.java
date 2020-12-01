@@ -5,39 +5,28 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+/*
+Переделать с  использованием try - with- resourses
+Читать про данную конструкцию, её возможности и ограничения.
+ */
 public class Coder {
 
-    public static void codeFile(String inFileName, String outFileName, char[] code, String logName) throws IOException {
-        FileReader readInFile = new FileReader(inFileName);
-        FileWriter writeInFile = new FileWriter(outFileName, false);
-        try {
+    public static  void codeFile(String inFileName, String outFileName, char[] code, String logName) throws IOException {
+
+        FileWriter writeLogName;
+        try ( FileReader readInFile = new FileReader(inFileName);
+              FileWriter writeInFile = new FileWriter(outFileName, false)){
             int symbol;
-            try {
                 while ((symbol = readInFile.read()) != -1) {
-                   // System.out.println(symbol);//test
+                    // System.out.println(symbol);//test
                     writeInFile.write(code[symbol]); //hint&tips
                 }
-            } finally {
-                writeInFile.close();
-            }
-        } catch (ArrayIndexOutOfBoundsException e) {
-            e.getMessage();
-        } catch (IOException ex) {
-            writeInFile = new FileWriter("logName");
-            writeInFile.write(ex.getMessage());
-        } finally {
-            try {
-                readInFile.close();
-            } catch (IOException i) {
-                i.printStackTrace();
-            }
-            try {
-                writeInFile.close();
-            } catch (IOException i) {
-                i.printStackTrace();
-            }
+        } catch (IOException e){
+            writeLogName = new FileWriter("logName");
+            writeLogName.write(e.getMessage());
         }
     }
+
 
     public static void main(String[] args) {
         char[] code = new char[8213];
