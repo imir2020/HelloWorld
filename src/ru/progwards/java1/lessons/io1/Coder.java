@@ -11,31 +11,30 @@ import java.io.IOException;
  */
 public class Coder {
 
-    public static  void codeFile(String inFileName, String outFileName, char[] code, String logName) throws IOException {
+    public static void codeFile(String inFileName, String outFileName, char[] code, String logName) {
 
         FileWriter writeLogName;
-        try ( FileReader readInFile = new FileReader(inFileName);
-              FileWriter writeInFile = new FileWriter(outFileName, false)){
+        try (FileReader readInFile = new FileReader(inFileName);
+             FileWriter writeInFile = new FileWriter(outFileName, false)) {
             int symbol;
-                while ((symbol = readInFile.read()) != -1) {
-                    // System.out.println(symbol);//test
-                    writeInFile.write(code[symbol]); //hint&tips
-                }
-        } catch (IOException e){
-            writeLogName = new FileWriter(logName);
-            writeLogName.write(e.getMessage());
+            while ((symbol = readInFile.read()) != -1) {
+                // System.out.println(symbol);//test
+                writeInFile.write(code[symbol]); //hint&tips
+            }
+        } catch (IOException e) {
+            try {
+                writeLogName = new FileWriter(logName);
+                writeLogName.write(e.getMessage());
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         }
     }
-
-
-    public static void main(String[] args) {
+    
+    public static void main(String[] args) throws IOException {
         char[] code = new char[8213];
-        try {
-            codeFile("src/ru/progwards/java1/lessons/io1/inFileName",
-                    "src/ru/progwards/java1/lessons/io1/outFileName", code,
-                    "src/ru/progwards/java1/lessons/io1/logName");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        codeFile("src/ru/progwards/java1/lessons/io1/inFileName",
+                "src/ru/progwards/java1/lessons/io1/outFileName", code,
+                "src/ru/progwards/java1/lessons/io1/logName");
     }
 }
