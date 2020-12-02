@@ -13,21 +13,21 @@ public class Coder {
 
     public static void codeFile(String inFileName, String outFileName, char[] code, String logName) {
 
-        try ( FileReader readInFile = new FileReader(inFileName);
-              FileWriter writeInFile = new FileWriter(outFileName)) {
+        try (FileReader readInFile = new FileReader(inFileName);
+             FileWriter writeInFile = new FileWriter(outFileName)) {
             int symbol;
             while ((symbol = readInFile.read()) != -1) {
-                // System.out.println(symbol);//test
                 writeInFile.write(code[symbol]); //hint&tips
             }
-
         } catch (IOException e) {
-
             try {
-                //System.out.println(e.getMessage());
                 FileWriter writeLogName = new FileWriter(logName);
-               // String temp = e.getMessage();
                 writeLogName.write(e.getMessage());
+                /*
+                Если не закрыть поток, то, получается текст ошибки не будет записан
+                в файл ?
+                 */
+                writeLogName.close();
             } catch (IOException ex) {
                 ex.printStackTrace();
             }
