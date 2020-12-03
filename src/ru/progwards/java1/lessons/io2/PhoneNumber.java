@@ -37,8 +37,12 @@ public class PhoneNumber {
                     count++;
                 }
             }
-            System.out.println(cleanPhoneNumber + "  " + count);//test
+            //System.out.println(cleanPhoneNumber + "  " + count);//test
         }
+        cleanPhoneNumber.insert(2, "(");
+        cleanPhoneNumber.insert(6, ")");
+        cleanPhoneNumber.insert(10, "-");
+        System.out.println(cleanPhoneNumber);
         if (count != numberPhoneLength) {
             throw new RuntimeException("Wrong phone number");
         }
@@ -49,11 +53,11 @@ public class PhoneNumber {
        скобки, а перед последними четырьмя, поставить тире.
 
          */
-        return null;
+        return String.valueOf(cleanPhoneNumber);
     }
 
     public static void main(String[] args) {
         PhoneNumber one = new PhoneNumber();
-        one.format("8 (333) 788 - 28 - 23");
+        one.format("8u9 f(333) 788 - 28 - i23");
     }
 }
