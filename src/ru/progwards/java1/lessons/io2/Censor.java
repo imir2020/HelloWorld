@@ -80,6 +80,6 @@ public class Censor {
 
     public static void main(String[] args) {
         String[] obsceneWords = {"Java", "Oracle", "Sun", "Microsystems"};
-        censorFile("src/ru/progwards/java1/lessons/io2/This2", obsceneWords);
+        censorFile("src/ru/progwards/java1/lessons/io2/inoutFileName", obsceneWords);
     }
 }
