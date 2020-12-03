@@ -1,31 +1,16 @@
 package ru.progwards.java1.lessons.io2;
 
 public class PhoneNumber {
-
     private static final String[] matrix = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
     private static final int numberPhoneLength = 11;
-
     private final static String firstNumberPhoneCode = "+7";
     private final static String errorFirstNumber = "8";
 
-    /*
-    Это первая версия этого решения, вторая версия, - с регулярными выражениями, будет намного более
-    компактной.
-     */
-     /*
-   Интересно, а Integer.parseInt() -  может этот метод извлекает только цифры? - и тогда
-    данный метод можно значительно упростить
-     */
-
     //первый вариант решения.
-    public static String format(String phone) {
+    public static String format1(String phone) {
         String[] phoneNumbers = new String[phone.length()];
         StringBuilder cleanPhoneNumber = new StringBuilder();
         int count = 0;
-
-        /*
-        В цикле проверить наличие в первой цифре  цифры 8, и если она есть, заменить её на +7.
-         */
         for (int i = 0; i < phone.length(); i++) {
             phoneNumbers[i] = String.valueOf(phone.charAt(i));
             for (int j = 0; j < matrix.length; j++) {
@@ -37,7 +22,6 @@ public class PhoneNumber {
                     count++;
                 }
             }
-            //System.out.println(cleanPhoneNumber + "  " + count);//test
         }
         cleanPhoneNumber.insert(2, "(");
         cleanPhoneNumber.insert(6, ")");
@@ -46,18 +30,24 @@ public class PhoneNumber {
         if (count != numberPhoneLength) {
             throw new RuntimeException("Wrong phone number");
         }
- /*
-       В предыдущем цикле, получилось получить номер телефона.
-       Теперь его нужно привести к формату, указанному в задании. То есть,
-       нужно в цикле, перед и после, определенного количества цифр - трёх цифр, поставить
-       скобки, а перед последними четырьмя, поставить тире.
-
-         */
         return String.valueOf(cleanPhoneNumber);
+    }
+
+    //второй вариант решения c регулярным выражением.
+    public static String format(String phone) {
+        String numbers = phone.replaceAll("[^\\d]", "");
+        int len = numbers.length();
+        if (len < 10 || len > 11) {
+            throw new RuntimeException("Wrong phone number");
+        }
+        return "+" + (numbers.charAt(0) == '8' ? "7" : numbers.substring(0, 1))
+                + "(" + numbers.substring(1, 4) + ")"
+                + numbers.substring(4, 7) + "-" + numbers.substring(7);
     }
 
     public static void main(String[] args) {
         PhoneNumber one = new PhoneNumber();
-        one.format("8u9 f(333) 788 - 28 - i23");
+        one.format("8u f(333) 788 - 28 - i23");
+        System.out.println(one.format("8u f(333 788 - 28 - i23"));
     }
 }
