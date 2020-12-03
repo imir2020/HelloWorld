@@ -28,7 +28,7 @@ public class Censor {
             return errName + ":" + fileName;
         }
     }
-    public static void censorFile(String inoutFileName, String[] obscene) { // оказывается, надо искать не слова, а последовательность символов
+    public static void censorFile(String inoutFileName, String[] obscene) {
 
         if (inoutFileName == null || inoutFileName.compareTo("") == 0) throw new CensorException("Имя файла" +
                 " передавать обязательно", inoutFileName);
