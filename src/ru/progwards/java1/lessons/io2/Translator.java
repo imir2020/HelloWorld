@@ -1,19 +1,52 @@
 package ru.progwards.java1.lessons.io2;
 
-public class Translator {
-    private String[] inLang;
-    private String[] outLang;
-    Translator(String[] inLang, String[] outLang){
-        this.inLang = inLang;
-        this.outLang = outLang;
-    }
-    public String translate(String sentence){
+import java.util.Hashtable;
 
-        return null;
+public class Translator {
+    Hashtable<String, String> wordTable;
+
+    Translator(String[] inLang, String[] outLang) {
+        if (outLang.length != inLang.length) throw new ArrayIndexOutOfBoundsException("Длина массивов одинакова!!!");
+        int count = inLang.length;
+        wordTable = new Hashtable<>(count);
+        for (int i = 0; i < count; i++) {
+            wordTable.put(inLang[i].toLowerCase(), outLang[i].toLowerCase());
+        }
     }
+    public String translateWord(String word) {
+        String result = wordTable.get(word.toLowerCase());
+        if (result == null) return word;
+        if (Character.isUpperCase(word.charAt(0))) {
+            return Character.toUpperCase(result.charAt(0)) + (result.length() > 1 ? result.substring(1) : "");
+        }
+        return result;
+    }
+
+    public String translate(String sentence) {
+        StringBuilder result = new StringBuilder(128);
+        int wordBeginIndex = -1;
+        int len = sentence.length();
+
+        for(int i = 0; i < len; i++) {
+            char c = sentence.charAt(i);
+            if (Character.isLetter(c)) {
+                if (wordBeginIndex < 0) wordBeginIndex = i;
+            } else {
+                if (wordBeginIndex >= 0) {
+                    result.append(translateWord(sentence.substring(wordBeginIndex, i)));
+                    wordBeginIndex = -1;
+                }
+                result.append(c);
+            }
+        }
+        if (wordBeginIndex >= 0) {
+            result.append(translateWord(sentence.substring(wordBeginIndex)));
+        }
+        return result.toString();
+    }
+
     public static void main(String[] args) {
-        Translator two = new Translator(new String[]{"hello", "world"},
-                new String[]{"привет", "мир"});
-        two.translate("Hello World!");
+        Translator t = new Translator(new String[]{"puck"}, new String[]{"****"});
+        System.out.println(t.translate("What the puck are you shooting?"));
     }
 }
