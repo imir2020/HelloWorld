@@ -50,7 +50,6 @@ public class Censor {
         String tmpFileName = inoutFileName + ".tmp";
         String lineSeparator = System.getProperty("line.separator");
         boolean firstLine = true;
-
         try (FileReader r = new FileReader(inoutFileName); Scanner s = new Scanner(r);
              FileWriter w = new FileWriter(tmpFileName)) {
             while (s.hasNext()) {

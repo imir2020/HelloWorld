@@ -30,7 +30,9 @@ public class Translator {
         for(int i = 0; i < len; i++) {
             char c = sentence.charAt(i);
             if (Character.isLetter(c)) {
-                if (wordBeginIndex < 0) wordBeginIndex = i;
+                if (wordBeginIndex < 0){
+                    wordBeginIndex = i;
+                }
             } else {
                 if (wordBeginIndex >= 0) {
                     result.append(translateWord(sentence.substring(wordBeginIndex, i)));
@@ -47,6 +49,7 @@ public class Translator {
 
     public static void main(String[] args) {
         Translator t = new Translator(new String[]{"puck"}, new String[]{"****"});
+        t.translate("What the puck are you shooting?");
         System.out.println(t.translate("What the puck are you shooting?"));
     }
 }
