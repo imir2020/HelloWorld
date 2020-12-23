@@ -6,7 +6,7 @@ import java.util.*;
 public class LettersInFile {
 
     public static String process1(String fileName) throws IOException {
-        Set<Character> set = new HashSet<Character>();
+        Set<Character> set = new HashSet();
         FileReader fileReader = new FileReader(fileName);
         Scanner scanner = new Scanner(fileReader);
         while (scanner.hasNextLine()) {
@@ -80,6 +80,6 @@ public class LettersInFile {
 
 
     public static void main(String[] args) {
-      
+
     }
 }
