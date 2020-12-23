@@ -16,6 +16,9 @@ public class SetOperations {
     }
 
     public static Set<Integer> difference(Set<Integer> set1, Set<Integer> set2) {
+        if (set1 == null) return new HashSet<Integer>();
+        Set<Integer> result = new HashSet<Integer>(set1);
+        if (set2 != null) result.removeAll(set2);
         set2.removeAll(set1);
         return set2;
     }
@@ -25,12 +28,12 @@ public class SetOperations {
         В методе лучше заводить временную коллекцию, в которую передать входящую коллекцию,
         чтобы не изменять содержимое входящей коллекции.
          */
-        Set<Integer> temp1 = new HashSet<>(set1);
-        Set<Integer> temp2 = new HashSet<>(set2);
-        set1.removeAll(set2);
-        temp2.removeAll(temp1);
-        set1.addAll(temp2);
-        return set1;
+        Set<Integer> result1 = set1 != null ? new HashSet<Integer>(set1) : new HashSet<Integer>();
+        Set<Integer> result2 = set2 != null ? new HashSet<Integer>(set2) : new HashSet<Integer>();
+        result1.removeAll(set2);
+        result2.removeAll(set1);
+        result1.addAll(result2);
+        return result1;
     }
 
     public static void main(String[] args) {
