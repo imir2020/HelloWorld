@@ -12,8 +12,8 @@ public class ProductAnalytics {
     }
 
     public Set<Product> existInAll() {
-        if (allProducts == null || allProducts.size() == 0) return new HashSet<>();
-        if (shops == null || shops.size() == 0) return new HashSet<>();
+        //if (allProducts == null || allProducts.size() == 0) return new HashSet<>();
+        //if (shops == null || shops.size() == 0) return new HashSet<>();
         Set<Product> productList = new HashSet(allProducts);
         Iterator it = shops.iterator();
         while (it.hasNext()) {
@@ -23,7 +23,7 @@ public class ProductAnalytics {
     }
 
     public Set<Product> existAtListInOne() {
-        if (allProducts == null || allProducts.size() == 0) return new HashSet<>();
+      //  if (allProducts == null || allProducts.size() == 0) return new HashSet<>();
         Iterator it = shops.iterator();
         Set<Product> productList = new HashSet(((Shop) it.next()).getProducts());
 
@@ -36,10 +36,10 @@ public class ProductAnalytics {
     }
 
     public Set<Product> notExistInShops() {
-        if (allProducts == null || allProducts.size() == 0) return new HashSet<>();
+        //if (allProducts == null || allProducts.size() == 0) return new HashSet<>();
 
         Set<Product> productList = new HashSet(allProducts);
-        if (shops == null || shops.size() == 0) return productList;
+       // if (shops == null || shops.size() == 0) return productList;
 
         Iterator it = shops.iterator();
         while (it.hasNext()) {
@@ -51,8 +51,8 @@ public class ProductAnalytics {
 
     public Set<Product> existOnlyInOne() {
         Set<Product> productList = new HashSet<Product>();
-        if (allProducts == null || allProducts.size() == 0) return productList;
-        if (shops == null || shops.size() == 0) return productList;
+       // if (allProducts == null || allProducts.size() == 0) return productList;
+        //if (shops == null || shops.size() == 0) return productList;
         for (int i = 0; i < shops.size(); i++) {
             Set<Product> productsBefore = new HashSet<Product>();
             Set<Product> productsOne = new HashSet<Product>();
@@ -93,6 +93,9 @@ public class ProductAnalytics {
         List<Product> pa = new ArrayList(Arrays.asList(p5, p7, p8, p10));
         ProductAnalytics productAnalytics = new ProductAnalytics(ss, pa);
         System.out.println(productAnalytics.existOnlyInOne());
+        productAnalytics.existOnlyInOne();
+
+
     }
 
 }
