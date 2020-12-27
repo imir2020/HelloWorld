@@ -16,11 +16,11 @@ public class SetOperations {
     }
 
     public static Set<Integer> difference(Set<Integer> set1, Set<Integer> set2) {
-        if (set1 == null) return new HashSet<Integer>();
-        Set<Integer> result = new HashSet<Integer>(set1);
-        if (set2 != null) result.removeAll(set2);
-        set2.removeAll(set1);
-        return set2;
+       // if (set1 == null) return new HashSet<Integer>();
+        //Set<Integer> result = new HashSet<Integer>(set1);
+        //if (set2 != null) result.removeAll(set2);
+        set1.removeAll(set2);
+        return set1;
     }
 
     public static Set<Integer> symDifference(Set<Integer> set1, Set<Integer> set2) {
@@ -50,7 +50,7 @@ public class SetOperations {
         set2.add(3000);
         //System.out.println(union(set1, set2));
         //System.out.println(intersection(set1, set2));
-        //System.out.println(difference(set1, set2));
-        System.out.println(symDifference(set1, set2));
+        System.out.println(difference(set1, set2));
+        //System.out.println(symDifference(set1, set2));
     }
 }
