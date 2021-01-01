@@ -43,10 +43,9 @@ public class ProductAnalytics {
 
         Iterator it = shops.iterator();
         while (it.hasNext()) {
-            productList.removeAll(new HashSet<Product>(((Shop) it.next()).getProducts()));
+            productList.removeAll(new HashSet(((Shop) it.next()).getProducts()));
         }
         return productList;
-
     }
 
     public Set<Product> existOnlyInOne() {
