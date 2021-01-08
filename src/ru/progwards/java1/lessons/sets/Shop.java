@@ -1,7 +1,6 @@
 package ru.progwards.java1.lessons.sets;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Shop {
     private List<Product> products;//Подумать, нужно ли инциализировать множество в классе, или в конструкторе.
