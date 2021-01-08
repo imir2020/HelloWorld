@@ -19,17 +19,17 @@ public class Calculate {
         two.push(55.6);
         two.push(12.1);
         two.sub();
-        two.div(); // (737.22+24)/(55.6-12.1)+
+        two.div();
         two.push(19);
         two.push(3.33);
-        two.sub(); // (19-3.33)*(
+        two.sub(); 
         two.push(87);
         two.push(2);
         two.push(13.001);
         two.push(9.2);
         two.sub();
         two.mul();
-        two.add(); // 87+2*(13.001-9.2)
+        two.add();
         two.mul();
         two.add();
         return two.pop();
