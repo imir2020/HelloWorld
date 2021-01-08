@@ -6,8 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 
-public class CollectionSort {
-
+public class CollectionsSort {
     public static void mySort(Collection<Integer> data) {
         ArrayList<Integer> temp = new ArrayList<>(data);
         for (int i = 0; i < temp.size(); i++) {
@@ -67,7 +66,7 @@ public class CollectionSort {
     }
 
     public static void main(String[] args) {
-        CollectionSort one = new CollectionSort();
+        CollectionsSort one = new CollectionsSort();
         //one.compareSort();
         System.out.println(one.compareSort());
     }

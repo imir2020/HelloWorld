@@ -22,7 +22,7 @@ public class Calculate {
         two.div();
         two.push(19);
         two.push(3.33);
-        two.sub(); 
+        two.sub();
         two.push(87);
         two.push(2);
         two.push(13.001);
