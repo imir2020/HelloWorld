@@ -54,11 +54,11 @@ public class FiboMapCache {
             f2 = f2.add(f1);
             f1 = t;
             fiboCache.put(i, f2);
-            if (i % 3 == 0)
-                try {
-                    Thread.sleep(1);
-                } catch (InterruptedException ex) {
-                }
+//            if (i % 3 == 0)
+//                try {
+//                    Thread.sleep(1);
+//                } catch (InterruptedException ex) {
+//                }
         }
 
         lastFiboCache_n = n;
@@ -105,10 +105,10 @@ public class FiboMapCache {
     // Рассчитываем Фибоначчи с нуля без кеша
 
     public BigDecimal fiboNoCache(int n) {
-        try {
-            Thread.sleep(1);
-        } catch (InterruptedException ex) {
-        }
+//        try {
+//            Thread.sleep(1);
+//        } catch (InterruptedException ex) {
+//        }
         BigDecimal f1 = BigDecimal.ZERO;
         BigDecimal f2 = BigDecimal.ONE;
         BigDecimal t;
