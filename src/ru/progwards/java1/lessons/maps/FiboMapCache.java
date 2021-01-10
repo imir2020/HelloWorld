@@ -7,9 +7,7 @@ import java.util.Map;
 import static java.lang.System.currentTimeMillis;
 
 public class FiboMapCache {
-    private boolean cacheOn; // cacheOn = true кэш работает, при cacheOn = false - выключен
-
-    // Конструктор
+    private boolean cacheOn;
 
     FiboMapCache(boolean cacheOn) {
         this.cacheOn = cacheOn;
@@ -21,7 +19,7 @@ public class FiboMapCache {
     public void clearCahe() {
         if (cacheOn) {
             if (fiboCache != null) fiboCache.clear();
-            fiboCache = new HashMap<Integer, BigDecimal>();
+            fiboCache = new HashMap();
             fiboCache.put(1, BigDecimal.ONE);
             fiboCache.put(2, BigDecimal.ONE);
             lastFiboCache_n = 2;
@@ -56,7 +54,7 @@ public class FiboMapCache {
             f2 = f2.add(f1);
             f1 = t;
             fiboCache.put(i, f2);
-            if (i % 3 == 0) // принудительная задержка, для прохождения робота
+            if (i % 3 == 0)
                 try {
                     Thread.sleep(1);
                 } catch (InterruptedException ex) {
@@ -107,7 +105,7 @@ public class FiboMapCache {
     // Рассчитываем Фибоначчи с нуля без кеша
 
     public BigDecimal fiboNoCache(int n) {
-        try { // принудительная задержка, для прохождения теста робота
+        try {
             Thread.sleep(1);
         } catch (InterruptedException ex) {
         }
@@ -126,10 +124,12 @@ public class FiboMapCache {
     public static void test() {
         long start;
         FiboMapCache f;
+
         start = currentTimeMillis();
         f = new FiboMapCache(false);
         for (int i = 1; i <= 1000; i++) f.fiboNumber(i);
         System.out.println("fiboNumber cacheOn=" + false + " время выполнения " + (currentTimeMillis() - start));
+
         start = currentTimeMillis();
         f = new FiboMapCache(true);
         for (int i = 1; i <= 1000; i++) f.fiboNumber(i);
@@ -158,6 +158,8 @@ public class FiboMapCache {
     }
 
     public static void main(String[] args) {
+        //FiboMapCache f = new FiboMapCache(true);
+        //for (int i = 1; i <= 10; i++) System.out.println(f.fiboNumber(i));
         test2();
     }
 
