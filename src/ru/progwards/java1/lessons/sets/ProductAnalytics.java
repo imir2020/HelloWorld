@@ -101,5 +101,4 @@ public class ProductAnalytics {
         ProductAnalytics productAnalytics = new ProductAnalytics(pa, ss);
         System.out.println(productAnalytics.existOnlyInOne());
     }
-
 }
