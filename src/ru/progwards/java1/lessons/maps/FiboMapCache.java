@@ -1,7 +1,9 @@
 package ru.progwards.java1.lessons.maps;
 
 import java.math.BigDecimal;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+
 import static java.lang.System.currentTimeMillis;
 
 public class FiboMapCache {

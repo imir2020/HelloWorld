@@ -2,7 +2,9 @@ package ru.progwards.java1.lessons.maps;
 
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 public class UsageFrequency {
     static Map<Character, Integer> letters;
@@ -57,7 +59,7 @@ public class UsageFrequency {
     }
 
     public static void main(String[] args) {
-       // processFile("..\\java1\\src\\ru\\progwards\\java1\\lessons\\maps\\UsageFrequency.java");
+        // processFile("..\\java1\\src\\ru\\progwards\\java1\\lessons\\maps\\UsageFrequency.java");
         System.out.println(getLetters());
         System.out.println(getWords());
     }
