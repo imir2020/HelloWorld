@@ -12,7 +12,6 @@ public class UserSession {
 
     public UserSession(String userName) {
         Random rnd = new Random();
-        //this.sessionHanle = (int)(Math.random()*Integer.MAX_VALUE);// по заданию
         this.sessionHanle = handleNextNum++; // считаю так лучше для хэш таблицы + полная уникальность + легче
         this.userName = userName;
         refreshLastAccess();
