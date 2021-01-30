@@ -57,5 +57,4 @@ public class FilesSelect {
     public static void main(String[] args) {
         selectFiles(".", "out", Arrays.asList("qwe", "File", "Sea"));
     }
-
 }
