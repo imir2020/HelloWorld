@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class FilesSelect {
-
     // поиск ключевиков во всех файлах каталога, копирование в папки с названиями ключевиков
     public static void selectFiles(String inFolder, String outFolder, List<String> keys) {
         List<Path> paths = null;
@@ -20,7 +19,6 @@ public class FilesSelect {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //System.out.println(paths);
         if (paths != null)
             for (Path path : paths) {
                 String key = findKey(path, keys);
@@ -48,7 +46,6 @@ public class FilesSelect {
     private static void copyFile(Path path, String outFolder, String subFolder) {
         Path destPath = Paths.get(outFolder + "/" + subFolder);
         Path dest = Paths.get(outFolder + "/" + subFolder + "/" + path.getFileName());
-        //System.out.println("copy "+path+" -> "+dest);
         try {
             if (Files.notExists(destPath)) Files.createDirectories(destPath);
             Files.copy(path, dest, StandardCopyOption.REPLACE_EXISTING);

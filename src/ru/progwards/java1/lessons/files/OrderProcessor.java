@@ -11,22 +11,6 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class OrderProcessor {
-
-/*
-Информация о заказах поступает в виде файлов, которые лежат в под-папках разбитых по неделям,
-имена папок не имеют значения. Имя каждого файла имеет формат: AAA-999999-ZZZZ.csv
-где AAA - обязательные 3 символа shopId - идентификатор магазина,
-999999 - обязательные 6 символов orderId - номер заказа,
-ZZZZ - обязательные 4 символа customerId - идентификатор покупателя,
-расширение файла - csv, например S02-P01X12-0012.csv: shopId=”S02”, orderId=”P01X12”, customerId=”0012”
-Содержимое каждого файла имеет формат CSV (Comma Separated Values) со следующими данными
-Наименование товара, количество, цена за единицу
-Например:
-Игрушка мягкая “Мишка”, 1, 1500
-Пазл “Замок в лесу”, 2, 700
-Книжка “Сказки Пушкина”, 1, 300
-*/
-
     Path startPath; // начальная папка для хранения файлов
     List<Order> orders; // список заказов
     String loadedShopId; // загруженный магазин
@@ -36,19 +20,13 @@ ZZZZ - обязательные 4 символа customerId - идентифик
         this.startPath = Paths.get(startPath);
     }
 
-    // загружает заказы за указанный диапазон дат, с start до finish, обе даты включительно.
-    // Если start == null, значит нет ограничения по дате слева, если finish == null, значит нет ограничения по дате справа,
-    // если shopId == null - грузим для всех магазинов
-    // При наличии хотя бы одной ошибки в формате файла, файл полностью игнорируется, т.е. Не поступает в обработку.
-    // Метод возвращает количество файлов с ошибками. При этом, если в классе содержалась информация, ее надо удалить
     public int loadOrders(LocalDate start, LocalDate finish, String shopId) {
-        orders = new ArrayList<Order>();
+        orders = new ArrayList();
         int failedFiles = 0;
         List<Path> paths = null;
         loadedShopId = shopId;
 
         // список файлов с информацией о заказах
-        // плохо, что имена папок "не имеют значения".
         String shopFilter = shopId == null ? "???" : shopId;
         String pattern = "glob:**/" + shopFilter + "-??????-????.csv"; // tester not passed
         PathMatcher pathMatcher1 = FileSystems.getDefault().getPathMatcher(pattern);
@@ -69,8 +47,6 @@ ZZZZ - обязательные 4 символа customerId - идентифик
             e.printStackTrace();
         }
         if (paths == null) return 0;
-        //System.out.println(paths);
-
         for (Path path : paths) {
             if (!loadOrderFromFile(path)) {
                 failedFiles++;
@@ -79,9 +55,6 @@ ZZZZ - обязательные 4 символа customerId - идентифик
                 System.out.println("Ok: " + path);
             }
         }
-        //System.out.println(orders);
-        //sortOrders(); // отсортируем orders // отсортировали файлы ранее, потому это не надо
-
         return failedFiles;
     }
 
@@ -207,8 +180,5 @@ ZZZZ - обязательные 4 символа customerId - идентифик
         OrderProcessor p = new OrderProcessor("C:\\Users\\srs1\\Projects2\\java1\\src\\ru\\progwards\\java1\\lessons\\files\\orders");
         System.out.println(p.loadOrders(null, null, null));
         System.out.println(p.process(null));
-        //System.out.println(p.statisticsByShop());
-        //System.out.println(p.statisticsByGoods());
-        //System.out.println(p.statisticsByDay());
     }
 }
