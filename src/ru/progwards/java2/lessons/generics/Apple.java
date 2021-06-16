@@ -1,0 +1,14 @@
+package ru.progwards.java2.lessons.generics;
+
+public class Apple extends Fruit {
+
+    private float weight = 1.0f;
+
+    public float getWeight() {
+        return weight;
+    }
+
+    public static void main(String[] args) {
+
+    }
+}

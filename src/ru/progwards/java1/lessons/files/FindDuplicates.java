@@ -91,8 +91,7 @@ public class FindDuplicates {
                 else bufSize = (int) fSize / 4;
             try (
                     BufferedInputStream s1 = new BufferedInputStream(f1, bufSize);
-                    BufferedInputStream s2 = new BufferedInputStream(f2, bufSize);
-            ) {
+                    BufferedInputStream s2 = new BufferedInputStream(f2, bufSize)) {
                 int b1 = 0;
                 while ((b1 = s1.read()) != -1) {
                     if (b1 != s2.read()) return false;
@@ -104,33 +103,33 @@ public class FindDuplicates {
         }
     }
 
-    public static boolean isEqualPaths2(Path path1, Path path2) {
-        try (
-                InputStream f1 = Files.newInputStream(path1);
-                InputStream f2 = Files.newInputStream(path2);
-        ) {
-            long fSize = Files.size(path1);
-            int bufSize = (int) (fSize / 16);
-            final int minBufSize = 128 * 1024;
-            final int maxBufSize = 1 * 1024 * 1024;
-            if (bufSize > maxBufSize || fSize > Integer.MAX_VALUE) bufSize = maxBufSize;
-            else if (bufSize < minBufSize)
-                if (fSize < minBufSize) bufSize = (int) fSize;
-                else bufSize = (int) fSize / 4;
-            try (
-                    BufferedInputStream s1 = new BufferedInputStream(f1, bufSize);
-                    BufferedInputStream s2 = new BufferedInputStream(f2, bufSize);
-            ) {
-                int b1;
-                while ((b1 = s1.read()) != -1) {
-                    if (b1 != s2.read()) return false;
-                }
-                return s2.read() == -1;
-            }
-        } catch (Throwable e) {
-            return false;
-        }
-    }
+//    public static boolean isEqualPaths2(Path path1, Path path2) {
+//        try (
+//                InputStream f1 = Files.newInputStream(path1);
+//                InputStream f2 = Files.newInputStream(path2);
+//        ) {
+//            long fSize = Files.size(path1);
+//            int bufSize = (int) (fSize / 16);
+//            final int minBufSize = 128 * 1024;
+//            final int maxBufSize = 1 * 1024 * 1024;
+//            if (bufSize > maxBufSize || fSize > Integer.MAX_VALUE) bufSize = maxBufSize;
+//            else if (bufSize < minBufSize)
+//                if (fSize < minBufSize) bufSize = (int) fSize;
+//                else bufSize = (int) fSize / 4;
+//            try (
+//                    BufferedInputStream s1 = new BufferedInputStream(f1, bufSize);
+//                    BufferedInputStream s2 = new BufferedInputStream(f2, bufSize);
+//            ) {
+//                int b1;
+//                while ((b1 = s1.read()) != -1) {
+//                    if (b1 != s2.read()) return false;
+//                }
+//                return s2.read() == -1;
+//            }
+//        } catch (Throwable e) {
+//            return false;
+//        }
+//    }
 
     // в заданных списках оставит только с одинаковым результатом comparatorFunc
     public static <T> List<List<T>> getEquals(List<List<T>> paths, Comparator<T> comparatorFunc) {
@@ -180,7 +179,7 @@ public class FindDuplicates {
                 if (cmp != null) {
                     List<ListOfObj> found = ht.get(cmp);
                     if (found == null) {
-                        found = new ArrayList<ListOfObj>();
+                        found = new ArrayList<>();
                         found.add(p);
                         ht.put(cmp, found);
                     } else {
@@ -195,12 +194,12 @@ public class FindDuplicates {
         return result;
     }
 
-    // Считываем все файлы в данном каталоге в поток
-    public static List<Path> readAllPathsLambda(String startPath) throws IOException {
-        return Files.walk(Paths.get(startPath))
-                .filter(Files::isRegularFile)
-                .collect(Collectors.toList());
-    }
+//    // Считываем все файлы в данном каталоге в поток
+//    public static List<Path> readAllPathsLambda(String startPath) throws IOException {
+//        return Files.walk(Paths.get(startPath))
+//                .filter(Files::isRegularFile)
+//                .collect(Collectors.toList());
+//    }
 
     // Считываем все файлы в данном каталоге в массив
     public static List<Path> readAllPathsNio(String startPath) {
