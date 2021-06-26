@@ -1,6 +1,6 @@
 package ru.progwards.java2.lessons.generics;
 
-import java.util.Arrays;
+        import java.util.Arrays;
 
 public class DynamicArray<T> {
     private T[] abs;
