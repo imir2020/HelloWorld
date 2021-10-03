@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/progwards/java2/lessons/builders/pom.xml" />
+        <option value="$PROJECT_DIR$/src/progwards/java2/lessons/builders/PlugIn/pom.xml" />
+        <option value="$PROJECT_DIR$/src/progwards/java2/lessons/MavenPlugin/MPlugIn/pom.xml" />
+        <option value="$PROJECT_DIR$/src/progwards/java2/lessons/MPlugin/pom.xml" />
+        <option value="$PROJECT_DIR$/src/progwards/java1/lessons/Dplugin/pom.xml" />
+        <option value="$PROJECT_DIR$/src/progwards/Surmaven/pom.xml" />
+        <option value="$PROJECT_DIR$/src/progwards/java1/lessons/Smaven/pom.xml" />
+      </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/src/progwards/java1/lessons/Smaven/pom.xml" />
+        <option value="$PROJECT_DIR$/src/progwards/java2/lessons/builders/PlagIn/pom.xml" />
+      </set>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_13" default="true" project-jdk-name="13" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>

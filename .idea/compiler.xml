@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Dplugin" />
+        <module name="PlugIn" />
+        <module name="MPlugin" />
+        <module name="Smaven" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="builders" target="8" />
+      <module name="Dplugin" target="8" />
+      <module name="MavenPlugin" target="1.7" />
+      <module name="MPlugIn" target="1.7" />
+      <module name="MPlugin" target="1.7" />
+      <module name="PlagIn" target="1.7" />
+      <module name="PlugIn" target="1.7" />
+      <module name="Smaven" target="8" />
+      <module name="Surmaven" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Surmaven" options="-parameters" />
+    </option>
+  </component>
+</project>

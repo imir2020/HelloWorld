@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/src/progwards/java1/lessons/Dplugin/Dplugin.iml" filepath="$PROJECT_DIR$/src/progwards/java1/lessons/Dplugin/Dplugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/progwards/java2/lessons/MPlugin/MPlugin.iml" filepath="$PROJECT_DIR$/src/progwards/java2/lessons/MPlugin/MPlugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/progwards/java2/lessons/builders/PlagIn/PlagIn.iml" filepath="$PROJECT_DIR$/src/progwards/java2/lessons/builders/PlagIn/PlagIn.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/progwards/java2/lessons/builders/PlugIn/PlugIn.iml" filepath="$PROJECT_DIR$/src/progwards/java2/lessons/builders/PlugIn/PlugIn.iml" />
       <module fileurl="file://$PROJECT_DIR$/PracticeJava.iml" filepath="$PROJECT_DIR$/PracticeJava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/progwards/java1/lessons/Smaven/Smaven.iml" filepath="$PROJECT_DIR$/src/progwards/java1/lessons/Smaven/Smaven.iml" />
+      <module fileurl="file://$PROJECT_DIR$/src/progwards/java2/lessons/builders/builders.iml" filepath="$PROJECT_DIR$/src/progwards/java2/lessons/builders/builders.iml" />
     </modules>
   </component>
 </project>
